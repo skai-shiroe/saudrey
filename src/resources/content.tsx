@@ -1,11 +1,20 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type {
+  About,
+  Blog,
+  Gallery,
+  Home,
+  Newsletter,
+  Person,
+  Social,
+  Work,
+} from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Audrey",
   lastName: "Senou",
   name: "Audrey Senou",
-  role: "Développeur Web & Mobile | Chef de Projet | Assistant Virtuel",
+  role: "Web & Mobile Development | Digital Project Management | Virtual Assistance",
   avatar: "/images/avatar.jpg",
   email: "senou.audrey.dev@gmail.com",
   location: "Africa/Lome", 
@@ -15,8 +24,15 @@ const person: Person = {
 const newsletter: Newsletter = {
   display: true,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  description: (
+    <>
+      Join my weekly newsletter where I share strategies on web development, design, project
+      management, and AI—practical insights to help you build smarter digital solutions and stay
+      ahead in the tech world.
+    </>
+  ),
 };
+
 
 const social: Social = [
   // Links are automatically displayed.
@@ -49,7 +65,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Bridging design, development, and strategy</>,
+  headline: <>Designing and building impactful digital solutions</>,
   featured: {
     display: true,
     title: (
@@ -65,17 +81,13 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Audrey Senou, a design engineer at{" "}
-      <Logo
-        dark
-        icon="/trademarks/wordmark-dark.svg"
-        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
-      />
-      , where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Audrey Senou, a web developer and project manager creating sleek,
+      functional apps that blend technology and design.
     </>
   ),
 };
+
+
 
 const about: About = {
   path: "/about",
@@ -93,17 +105,16 @@ const about: About = {
     display: true,
     link: "https://cal.com",
   },
-  intro: {
-    display: true,
-    title: "Introduction",
-    description: (
-      <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
-      </>
-    ),
-  },
+ intro: {
+  display: true,
+  title: "Introduction",
+  description:
+    "I’m Audrey Senou, a web & mobile developer and digital project manager. I help businesses and organizations turn their ideas into real-world solutions: business applications, e-commerce platforms, management tools, and innovative online experiences. My approach combines creativity, efficiency, and attention to detail.",
+},
+
+
+
+
   work: {
     display: true, // set to false to hide this section
     title: "Work Experience",
@@ -112,16 +123,11 @@ const about: About = {
         company: "FLY",
         timeframe: "2022 - Present",
         role: "Senior Design Engineer",
-        achievements: [
-          <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
-        ],
+      achievements: [
+  "Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user engagement and 30% faster load times.",
+  "Spearheaded the integration of AI tools into design workflows, enabling designers to iterate 50% faster.",
+],
+
         images: [
           // optional: leave the array empty if you don't want to display images
           {
@@ -136,19 +142,19 @@ const about: About = {
         company: "Creativ3",
         timeframe: "2018 - 2022",
         role: "Lead Designer",
-        achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
-        ],
+achievements: [
+ 
+  "Built a stock management system with predictive requisition features.",
+  "Developed a taxpayer management application with automated data processing.",
+  "Designed and deployed a blog platform (MiabeHub) with unique editorial style.",
+  "Successfully led digital projects combining technical expertise with project management.",
+],
+
         images: [],
       },
     ],
+
+
   },
   studies: {
     display: true, // set to false to hide this section
