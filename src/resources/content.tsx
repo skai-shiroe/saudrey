@@ -115,122 +115,138 @@ const about: About = {
 
 
 
-  work: {
-    display: true, // set to false to hide this section
-    title: "Work Experience",
-    experiences: [
-      {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+work : {
+  display: true, // set to false to hide this section
+  title: "Work Experience",
+  experiences: [
+    {
+      company: "Freelance",
+      timeframe: "2025 - Present",
+      role: "Web & Mobile Developer / Project Manager",
       achievements: [
-  "Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user engagement and 30% faster load times.",
-  "Spearheaded the integration of AI tools into design workflows, enabling designers to iterate 50% faster.",
-],
+        "Developed AllControl, a stock management system with predictive requisition features for businesses.",
+        "Built a taxpayer management application with automated data processing, reducing manual work by 50%.",
+        "Created a system for anonymous reporting, allowing secure public consultation without registration.",
+        "Designed and deployed MiabeHub, a content platform with unique editorial style and high user engagement.",
+      ],
+      images: [
+        {
+          src: "/images/projects/project-01/cover-01.jpg",
+          alt: "AllControl Project",
+          width: 16,
+          height: 9,
+        },
+      ],
+    },
+    {
+      company: "Freelance",
+      timeframe: "2024 - 2025",
+      role: "Web Developer & Designer",
+      achievements: [
+        "Developed an e-commerce platform for a local agricultural business, integrating product catalog and online sales.",
+        "Implemented a digital solution for managing pisciculture operations, streamlining workflow and tracking stock.",
+      ],
+      images: [],
+    },
+    {
+      company: "Freelance",
+      timeframe: "2023 - 2024",
+      role: "Frontend Developer & UI/UX Designer",
+      achievements: [
+        "Created multiple client websites and applications, combining modern UI/UX and responsive design.",
+        "Integrated automation tools and dashboards to help clients manage operations efficiently.",
+      ],
+      images: [],
+    },
+  ],
+},
 
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
-achievements: [
- 
-  "Built a stock management system with predictive requisition features.",
-  "Developed a taxpayer management application with automated data processing.",
-  "Designed and deployed a blog platform (MiabeHub) with unique editorial style.",
-  "Successfully led digital projects combining technical expertise with project management.",
-],
-
-        images: [],
-      },
-    ],
 
 
-  },
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
-    institutions: [
-      {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
-    ],
+  display: true, // set to false to hide this section
+  title: "Studies",
+  institutions: [
+    {
+      name: "ESGIS, Togo",
+      description: "Studied Computer Science with a focus on software development and database management.",
+    },
+    {
+      name: "Online Courses & Certifications",
+      description: "Completed courses in web development, AI, DevOps, and digital project management.",
+    },
+  ],
   },
+
+  
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
-    skills: [
-      {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
-        tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },  
-    ],
+  display: true, // set to false to hide this section
+  title: "Technical Skills",
+  skills: [
+    {
+      title: "Figma & UI/UX Design",
+      description: "Expert in prototyping and designing intuitive interfaces with Figma, Tailwind, and custom design systems.",
+      tags: [
+        { name: "Figma", icon: "figma" },
+        { name: "UI/UX", icon: "figma" },
+        { name: "Design Systems", icon: "figma" },
+      ],
+      images: [
+        {
+          src: "/images/projects/project-01/cover-02.jpg",
+          alt: "UI/UX project",
+          width: 16,
+          height: 9,
+        },
+        {
+          src: "/images/projects/project-01/cover-03.jpg",
+          alt: "UI/UX project",
+          width: 16,
+          height: 9,
+        },
+      ],
+    },
+    {
+      title: "Next.js & Web Development",
+      description: "Building modern web applications with Next.js, TypeScript, Tailwind CSS, Elysia.js, and Prisma.",
+      tags: [
+        { name: "JavaScript", icon: "javascript" },
+        { name: "Next.js", icon: "nextjs" },
+        { name: "TypeScript", icon: "typescript" },
+        { name: "Prisma", icon: "prisma" },
+        { name: "Elysia.js", icon: "javascript" },
+        { name: "Wordpress", icon: "wordpress" },
+      ],
+      images: [
+        {
+          src: "/images/projects/project-01/cover-04.jpg",
+          alt: "Web development project",
+          width: 16,
+          height: 9,
+        },
+      ],
+    },
+    {
+      title: "DevOps & Automation",
+      description: "Experience with Docker, CI/CD pipelines, and workflow automation to optimize project delivery and deployment.",
+      tags: [
+        { name: "Docker", icon: "docker" },
+        { name: "CI/CD", icon: "ci" },
+        { name: "Automation", icon: "automation" },
+      ],
+      images: [],
+    },
+    {
+      title: "AI & Machine Learning",
+      description: "Familiar with Python, TensorFlow, and PyTorch for integrating AI solutions into projects and automating tasks.",
+      tags: [
+        { name: "Python", icon: "python" },
+        { name: "TensorFlow", icon: "tensorflow" },
+        { name: "PyTorch", icon: "pytorch" },
+      ],
+      images: [],
+    },
+  ],
   },
 };
 
