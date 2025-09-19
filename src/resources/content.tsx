@@ -33,6 +33,47 @@ const newsletter: Newsletter = {
   ),
 };
 
+const mailchimp = {
+  action: "https://skai-shiroe.us21.list-manage.com/subscribe/post?u=c1a5a210340eb6c7bff33b2ba&id=0462d244aa",
+  effects: {
+    mask: {
+      cursor: false,
+      x: 50,
+      y: 0,
+      radius: 100
+    },
+    gradient: {
+      display: true,
+      x: 50,
+      y: -25,
+      width: 100,
+      height: 100,
+      tilt: 0,
+      colorStart: 'accent-background-strong',
+      colorEnd: 'static-transparent',
+      opacity: 50
+    },
+    dots: {
+      display: true,
+      size: 2,
+      color: 'brand-on-background-weak',
+      opacity: 20
+    },
+    lines: {
+      display: false,
+      color: 'neutral-alpha-weak',
+      opacity: 100
+    },
+    grid: {
+      display: false,
+      color: 'neutral-alpha-weak',
+      opacity: 100,
+      width: 'var(--static-space-32)',
+      height: 'var(--static-space-32)'
+    }
+  }
+};
+
 
 const social: Social = [
   // Links are automatically displayed.
@@ -40,17 +81,17 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/skai-shiroe",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/senou-k-audrey/",
   },
   {
     name: "Threads",
     icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.threads.com/@skai_shiroe",
   },
   {
     name: "Email",
@@ -319,4 +360,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, mailchimp, home, about, blog, work, gallery };
