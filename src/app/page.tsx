@@ -77,7 +77,6 @@ export default function Home() {
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
             <Button
-              id="about"
               data-border="rounded"
               href={about.path}
               variant="secondary"
@@ -101,7 +100,7 @@ export default function Home() {
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
+        <Projects include={["allcontrol", "lapepiniereskm","miabehub"]} range={[1, 1]} />
       </RevealFx>
       {routes["/blog"] && (
         <Column fillWidth gap="24" marginBottom="l">
@@ -123,7 +122,7 @@ export default function Home() {
           </Row>
         </Column>
       )}
-      <Projects range={[2]} />
+      <Projects include={["allcontrol", "lapepiniereskm","miabehub"]} range={[2]} />
       <Mailchimp />
     </Column>
   );
