@@ -1,46 +1,42 @@
 ---
-title: "Quick start with Magic Portfolio"
-summary: "Magic Portfolio is a comprehensive, MDX-based, SEO-friendly, responsive portfolio template built with Once UI and Next.js."
-image: "/images/gallery/horizontal-1.jpg"
-publishedAt: "2025-04-23"
-tag: "Magic Portfolio"
+title: "Headless CMS & API-First: The Future of Web Content in 2025"
+summary: "Exploring how headless CMS architectures and API-first approaches are transforming content delivery, performance, and developer experience."
+image: "/images/gallery/horizontal-3.jpg"
+publishedAt: "2025-10-01"
+tag: "Web Trends"
 ---
 
 ## About
 
-Magic Portfolio is a comprehensive, MDX-based, SEO-friendly, responsive portfolio template built with Once UI and Next.js.
+Content management is evolving. With websites and apps needing speed, flexibility, and seamless multi-platform experiences, developers are increasingly adopting **headless CMS** and **API-first** architectures. This shift lets designers, writers, and developers work independently while delivering content quickly and consistently across devices.
 
-## License
+## Why Headless CMS & API-First Matter
 
-Magic Portfolio is licensed under the [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). You can only use it for personal purposes, and you must attribute the original work. The attribution is added in the footer by default, but you can place it in any other, visible part of your site.
+- **Decoupled Architecture**: Front-end and back-end are separate. You can build your UI in Next.js, React, Vue, or mobile apps without being locked into a monolithic CMS.  
+- **Performance & Speed**: Pre-rendered content, APIs, and static pages load faster, improve Core Web Vitals, and offer better mobile UX.  
+- **Flexibility & Omnichannel**: Same content can feed websites, mobile apps, kiosks, etc., using the same APIs.  
+- **Scalability & Maintainability**: Easier to update, version, add integrations without breaking existing front or back ends.
 
-Subscribe to the [Once UI Pro plan](https://once-ui.com/pricing) to extend the license to [Dopler CC](https://once-ui.com/products/magic-portfolio).
+## Technologies & Tools
 
-## Quick start
+- Headless CMS options: Strapi, Contentful, Sanity, or using WordPress as headless with REST or GraphQL.  
+- Front-end: Next.js (SSG/ISR), React, possibly with tools like Astro for static generation.  
+- Data layer: using APIs (REST, GraphQL), plus database + ORM (Prisma, etc.).  
+- Performance tools: image optimization, lazy loading, CDN, cache strategies.
 
-Clone the git repository:
+## Challenges & Best Practices
 
-<CodeBlock compact marginBottom="16" codes={[
-  {
-    code: "git clone https://github.com/once-ui-system/magic-portfolio.git",
-    language: "bash"
-  }
-]} />
+- Keep APIs secure and optimized (avoid overfetching).  
+- Plan for offline experiences or fallback content where possible.  
+- Manage content versioning and previews (preview mode).  
+- Maintain consistency (design tokens, style pipelines) pour que le front-end et le back-end restent alignés.
 
-Install the necessary dependencies:
+## Impact: What You Gain
 
-<CodeBlock compact marginBottom="16" codes={[
-  {
-    code: "npm install",
-    language: "bash"
-  }
-]} />
+- Faster loading times → meilleure satisfaction utilisateur + SEO.  
+- Meilleure flexibilité pour scaler, ajouter de nouvelles plateformes.  
+- Développement plus clair, plus modulaire, réduction du couplage.  
+- Meilleure collaboration entre dev + design + contenu.
 
-Start the local development server:
+---
 
-<CodeBlock compact marginBottom="16" codes={[
-  {
-    code: "npm run dev",
-    language: "bash"
-  }
-]} />

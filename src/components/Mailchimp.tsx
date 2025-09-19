@@ -155,6 +155,7 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
               id="mce-group[3492]-3492-0"
               value=""
               checked
+              aria-label="Subscribe to newsletter"
             />
           </div>
           <div id="mce-responses" className="clearfalse">
