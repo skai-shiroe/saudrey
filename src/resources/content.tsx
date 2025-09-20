@@ -172,7 +172,7 @@ work : {
       ],
       images: [
         {
-          src: "/images/projects/project-01/cover-01.jpg",
+          src: "/images/projects/allcontrol/allcontrol.png",
           alt: "AllControl Project",
           width: 16,
           height: 9,
