@@ -15,7 +15,7 @@ const person: Person = {
   lastName: "Senou",
   name: "Audrey Senou",
   role: "Web & Mobile Development | Digital Project Management | Virtual Assistance",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/skai.jpg",
   email: "senou.audrey.dev@gmail.com",
   location: "Africa/Lome", 
   languages: ["French", "English"], 
@@ -234,13 +234,13 @@ work : {
       ],
       images: [
         {
-          src: "/images/projects/project-01/cover-02.jpg",
+          src: "/images/projects/think/think.png",
           alt: "UI/UX project",
           width: 16,
           height: 9,
         },
         {
-          src: "/images/projects/project-01/cover-03.jpg",
+          src: "/images/projects/miabehub/miabehub.png",
           alt: "UI/UX project",
           width: 16,
           height: 9,
@@ -260,7 +260,7 @@ work : {
       ],
       images: [
         {
-          src: "/images/projects/project-01/cover-04.jpg",
+          src: "/images/projects/skm/skm.png",
           alt: "Web development project",
           width: 16,
           height: 9,
