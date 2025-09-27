@@ -207,6 +207,22 @@ export interface About extends BasePageConfig {
       }>;
     }>;
   };
+  /** Beyond code section */
+  beyond: {
+    /** Whether to display beyond code section */
+    display: boolean;
+    /** Title for the beyond code section */
+    title: string;
+    /** Books */
+    books: Array<{
+      title: string;
+      author?: string;
+    }>;
+    /** Games */
+    games: string[];
+  };
+  /** Beyond code section */
+
 }
 
 /**

@@ -17,8 +17,8 @@ const person: Person = {
   role: "Web & Mobile Development | Digital Project Management | Virtual Assistance",
   avatar: "/images/skai.jpg",
   email: "senou.audrey.dev@gmail.com",
-  location: "Africa/Lome", 
-  languages: ["French", "English"], 
+  location: "Africa/Lome",
+  languages: ["French", "English"],
 };
 
 const newsletter: Newsletter = {
@@ -146,80 +146,80 @@ const about: About = {
     display: true,
     link: "https://cal.com",
   },
- intro: {
-  display: true,
-  title: "Introduction",
-  description:
-    "I’m Audrey Senou, a web & mobile developer and digital project manager. I help businesses and organizations turn their ideas into real-world solutions: business applications, e-commerce platforms, management tools, and innovative online experiences. My approach combines creativity, efficiency, and attention to detail.",
-},
+  intro: {
+    display: true,
+    title: "Introduction",
+    description:
+      "I’m Audrey Senou, a web & mobile developer and digital project manager. I help businesses and organizations turn their ideas into real-world solutions: business applications, e-commerce platforms, management tools, and innovative online experiences. My approach combines creativity, efficiency, and attention to detail.",
+  },
 
 
 
 
-work : {
-  display: true, // set to false to hide this section
-  title: "Work Experience",
-  experiences: [
-    {
-      company: "Freelance",
-      timeframe: "2025 - Present",
-      role: "Web & Mobile Developer / Project Manager",
-      achievements: [
-        "Developed AllControl, a stock management system with predictive requisition features for businesses.",
-        "Built a taxpayer management application with automated data processing, reducing manual work by 50%.",
-        "Created a system for anonymous reporting, allowing secure public consultation without registration.",
-        "Designed and deployed MiabeHub, a content platform with unique editorial style and high user engagement.",
-      ],
-      images: [
-        {
-          src: "/images/projects/allcontrol/allcontrol.png",
-          alt: "AllControl Project",
-          width: 16,
-          height: 9,
-        },
-      ],
-    },
-    {
-      company: "Freelance",
-      timeframe: "2024 - 2025",
-      role: "Web Developer & Designer",
-      achievements: [
-        "Developed an e-commerce platform for a local agricultural business, integrating product catalog and online sales.",
-        "Implemented a digital solution for managing pisciculture operations, streamlining workflow and tracking stock.",
-      ],
-      images: [],
-    },
-    {
-      company: "Freelance",
-      timeframe: "2023 - 2024",
-      role: "Frontend Developer & UI/UX Designer",
-      achievements: [
-        "Created multiple client websites and applications, combining modern UI/UX and responsive design.",
-        "Integrated automation tools and dashboards to help clients manage operations efficiently.",
-      ],
-      images: [],
-    },
-  ],
-},
+  work: {
+    display: true, // set to false to hide this section
+    title: "Work Experience",
+    experiences: [
+      {
+        company: "Freelance",
+        timeframe: "2025 - Present",
+        role: "Web & Mobile Developer / Project Manager",
+        achievements: [
+          "Developed AllControl, a stock management system with predictive requisition features for businesses.",
+          "Built a taxpayer management application with automated data processing, reducing manual work by 50%.",
+          "Created a system for anonymous reporting, allowing secure public consultation without registration.",
+          "Designed and deployed MiabeHub, a content platform with unique editorial style and high user engagement.",
+        ],
+        images: [
+          {
+            src: "/images/projects/allcontrol/allcontrol.png",
+            alt: "AllControl Project",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        company: "Freelance",
+        timeframe: "2024 - 2025",
+        role: "Web Developer & Designer",
+        achievements: [
+          "Developed an e-commerce platform for a local agricultural business, integrating product catalog and online sales.",
+          "Implemented a digital solution for managing pisciculture operations, streamlining workflow and tracking stock.",
+        ],
+        images: [],
+      },
+      {
+        company: "Freelance",
+        timeframe: "2023 - 2024",
+        role: "Frontend Developer & UI/UX Designer",
+        achievements: [
+          "Created multiple client websites and applications, combining modern UI/UX and responsive design.",
+          "Integrated automation tools and dashboards to help clients manage operations efficiently.",
+        ],
+        images: [],
+      },
+    ],
+  },
 
 
 
   studies: {
-  display: true, // set to false to hide this section
-  title: "Studies",
-  institutions: [
-    {
-      name: "ESGIS, Togo",
-      description: "Studied Computer Science with a focus on software development and database management.",
-    },
-    {
-      name: "Online Courses & Certifications",
-      description: "Completed courses in web development, AI, DevOps, and digital project management.",
-    },
-  ],
+    display: true, // set to false to hide this section
+    title: "Studies",
+    institutions: [
+      {
+        name: "ESGIS, Togo",
+        description: "Studied Computer Science with a focus on software development and database management.",
+      },
+      {
+        name: "Online Courses & Certifications",
+        description: "Completed courses in web development, AI, DevOps, and digital project management.",
+      },
+    ],
   },
 
-  
+
   technical: {
   display: true, // set to false to hide this section
   title: "Technical Skills",
@@ -289,7 +289,24 @@ work : {
     },
   ],
   },
+
+  beyond: {
+    display: true,
+    title: "Beyond Code",
+    books: [
+      { title: "48 Lois du pouvoir" },
+      { title: "Plus malin que le diable" },
+      { title: "Réfléchissez et devenez riche" },
+      { title: "L'obstacle est le chemin" },
+      { title: "Ego is the Enemy" },
+      { title: "Comment convaincre en moins de 2 minutes" },
+      { title: "L'art de la guerre" },
+      { title: "The Code Book" },
+    ],
+    games: ["Échecs", "Dame", "Uno", "Moulin", "Go", "Undercover"],
+  },
 };
+
 
 const blog: Blog = {
   path: "/blog",
@@ -318,42 +335,42 @@ const gallery: Gallery = {
   // These are placeholder images, replace with your own
   images: [
     {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
+      src: "/images/hobbies/books/48lois.jpg",
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
+      src: "/images/hobbies/books/plusmalin.jpg",
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/vertical-2.jpg",
+      src: "/images/hobbies/books/reflechissez.jpg",
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-2.jpg",
+      src: "/images/hobbies/books/obstacle.jpg",
       alt: "image",
-      orientation: "horizontal",
+      orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-4.jpg",
+      src: "/images/hobbies/books/ego.jpg",
       alt: "image",
-      orientation: "horizontal",
+      orientation: "vertical",
     },
     {
-      src: "/images/gallery/vertical-3.jpg",
+      src: "/images/hobbies/books/convaincre.jpg",
+      alt: "image",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/hobbies/books/artdeguerre.jpg",
+      alt: "image",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/hobbies/books/code.jpg",
       alt: "image",
       orientation: "vertical",
     },

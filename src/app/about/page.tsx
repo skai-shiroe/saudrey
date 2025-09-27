@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <explanation> */
 import {
   Avatar,
   Button,
@@ -48,6 +49,16 @@ export default function About() {
       title: about.technical.title,
       display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
+    },
+    {
+      title: "Books",
+      display: about.beyond.display,
+      items: [],
+    },
+    {
+      title: "Games",
+      display: about.beyond.display,
+      items: [],
     },
   ];
   return (
@@ -330,6 +341,43 @@ export default function About() {
                     )}
                   </Column>
                 ))}
+              </Column>
+            </>
+          )}
+
+          {about.beyond.display && (
+            <>
+              <Column fillWidth gap="l">
+                <Column fillWidth gap="4">
+                  <Heading as="h2" id="books" variant="display-strong-s" marginBottom="m">
+                    Books
+                  </Heading>
+                  <Text variant="body-default-m" onBackground="neutral-weak">
+                    Some of the books that have influenced my thinking and personal development.
+                  </Text>
+                  <Row wrap gap="8" paddingTop="8">
+                    {about.beyond.books.map((book, index) => (
+                      <Tag key={index} size="l">
+                        {book.title}
+                      </Tag>
+                    ))}
+                  </Row>
+                </Column>
+                <Column fillWidth gap="4">
+                  <Heading as="h2" id="games" variant="display-strong-s" marginBottom="m">
+                    Games
+                  </Heading>
+                  <Text variant="body-default-m" onBackground="neutral-weak">
+                    Board games and strategy games I enjoy playing.
+                  </Text>
+                  <Row wrap gap="8" paddingTop="8">
+                    {about.beyond.games.map((game, index) => (
+                      <Tag key={index} size="l">
+                        {game}
+                      </Tag>
+                    ))}
+                  </Row>
+                </Column>
               </Column>
             </>
           )}
