@@ -45,8 +45,10 @@ export default async function RootLayout({
       )}
     >
       <head>
-        <script
+        {/** biome-ignore lint/correctness/useUniqueElementIds: <explanation> */}
+<script
           id="theme-init"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
