@@ -166,6 +166,7 @@ export default async function RootLayout({
             </Flex>
           </Flex>
           <Footer />
+          <SpeedInsights />
         </Column>
       </Providers>
     </Flex>
