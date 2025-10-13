@@ -1,0 +1,326 @@
+---
+title: "Building AI-Powered Web Apps with Next.js: A Full-Stack Developer Guide"
+summary: "Learn how to integrate AI capabilities into modern web applications using Next.js, TypeScript, and AI APIs. Step-by-step guide for full-stack developers."
+image: "/images/projects/think/think.png"
+publishedAt: "2025-10-12"
+tag: "Full-Stack Development"
+---
+
+## Introduction
+
+AI is transforming web development, and Next.js provides an excellent platform for building AI-powered applications. As a full-stack developer, you can leverage modern AI APIs while maintaining performance, scalability, and user experience. This guide covers practical approaches to integrating AI into your Next.js projects.
+
+## Setting Up the Foundation
+
+### Project Structure
+Start with a well-organized Next.js application using TypeScript:
+
+```typescript
+// lib/ai-client.ts
+import OpenAI from 'openai'
+
+export const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+})
+
+export async function generateResponse(prompt: string) {
+  try {
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 150,
+    })
+    return completion.choices[0].message.content
+  } catch (error) {
+    console.error('AI API Error:', error)
+    return null
+  }
+}
+```
+
+### Environment Configuration
+Ensure proper security with environmental variables:
+
+```bash
+# .env.local
+OPENAI_API_KEY=your_api_key_here
+AI_MODEL=gpt-3.5-turbo
+MAX_TOKENS=2000
+```
+
+## Building AI Features
+
+### Smart Content Generation
+Create dynamic content generation for blogs, marketing copy, or personalized messages:
+
+```typescript
+// pages/api/content/generate.ts
+import { generateResponse } from '@/lib/ai-client'
+import type { NextApiRequest, NextApiResponse } from 'next'
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' })
+  }
+
+  const { topic, type } = req.body
+
+  const prompt = `Generate a ${type} about ${topic}. Make it engaging and informative.`
+
+  try {
+    const content = await generateResponse(prompt)
+    res.status(200).json({ content })
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to generate content' })
+  }
+}
+```
+
+### Intelligent Search
+Implement semantic search capabilities:
+
+```typescript
+// app/search/components/SearchResults.tsx
+'use client'
+
+import { useState, useEffect } from 'react'
+import useSWR from 'swr'
+
+interface SearchResultsProps {
+  query: string
+}
+
+export default function SearchResults({ query }: SearchResultsProps) {
+  const { data, error } = useSWR(
+    query ? `/api/search?q=${encodeURIComponent(query)}` : null,
+    fetcher
+  )
+
+  if (!query) return null
+  if (error) return <div>Search error occurred</div>
+  if (!data) return <div>Loading...</div>
+
+  return (
+    <div className="search-results">
+      {data.results.map((result: any) => (
+        <div key={result.id} className="result-item">
+          <h3>{result.title}</h3>
+          <p>{result.snippet}</p>
+          <small>{result.category}</small>
+        </div>
+      ))}
+    </div>
+  )
+}
+```
+
+### AI Chat Interface
+Build interactive chat experiences:
+
+```typescript
+// components/chat/Chat.tsx
+'use client'
+
+import { useState } from 'react'
+
+export default function Chat() {
+  const [messages, setMessages] = useState<Array<{
+    text: string
+    sender: 'user' | 'ai'
+  }>>([])
+  const [input, setInput] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+
+  const sendMessage = async () => {
+    if (!input.trim()) return
+
+    setMessages(prev => [...prev, { text: input, sender: 'user' }])
+
+    setIsLoading(true)
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: input })
+      })
+      const data = await response.json()
+
+      setMessages(prev => [...prev, { text: data.reply, sender: 'ai' }])
+    } catch (error) {
+      console.error('Chat error:', error)
+    }
+    setIsLoading(false)
+    setInput('')
+  }
+
+  return (
+    <div className="chat-container">
+      {/* Messages display */}
+      <div className="messages">
+        {messages.map((msg, idx) => (
+          <div key={idx} className={`message ${msg.sender}`}>
+            {msg.text}
+          </div>
+        ))}
+        {isLoading && <div className="loading">AI is thinking...</div>}
+      </div>
+
+      {/* Input area */}
+      <div className="input-area">
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+          placeholder="Ask me anything..."
+        />
+        <button onClick={sendMessage} disabled={isLoading}>
+          Send
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+## Performance Optimization
+
+### Streaming Responses
+Use streaming for better user experience:
+
+```typescript
+// pages/api/chat/stream.ts
+import OpenAI from 'openai'
+
+export default async function handler(req: any, res: any) {
+  if (req.method !== 'POST') return res.status(405).end()
+
+  const { messages } = req.body
+
+  res.writeHead(200, {
+    'Content-Type': 'text/plain',
+    'Cache-Control': 'no-cache',
+    'Connection': 'keep-alive'
+  })
+
+  const stream = await openai.chat.completions.create({
+    model: 'gpt-3.5-turbo',
+    messages,
+    stream: true
+  })
+
+  for await (const chunk of stream) {
+    const text = chunk.choices[0]?.delta?.content || ''
+    res.write(text)
+  }
+
+  res.end()
+}
+```
+
+### Caching Strategy
+Implement intelligent caching:
+
+```typescript
+// lib/cache.ts
+import { Redis } from '@upstash/redis'
+
+const redis = new Redis({
+  url: process.env.REDIS_URL!,
+  token: process.env.REDIS_TOKEN!
+})
+
+export async function cacheAIResponse(key: string, response: string, ttl = 3600) {
+  await redis.set(key, response, { ex: ttl })
+}
+
+export async function getCachedResponse(key: string) {
+  return await redis.get(key)
+}
+```
+
+## Best Practices
+
+### Error Handling
+Implement robust error handling for AI operations:
+
+```typescript
+// middleware/errorHandler.ts
+export function handleAIError(error: any) {
+  if (error.code === 'insufficient_quota') {
+    return { error: 'AI service temporarily unavailable', code: 503 }
+  }
+  if (error.code === 'invalid_api_key') {
+    return { error: 'Service configuration error', code: 500 }
+  }
+  return { error: 'Unexpected error occurred', code: 500 }
+}
+```
+
+### Rate Limiting
+Protect your AI API usage:
+
+```typescript
+// lib/rateLimit.ts
+import { Ratelimit } from '@upstash/ratelimit'
+import { Redis } from '@upstash/redis'
+
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(10, '1 m') // 10 requests per minute
+})
+
+export async function checkRateLimit(identifier: string) {
+  return await ratelimit.limit(identifier)
+}
+```
+
+### Content Moderation
+Ensure safe AI responses:
+
+```typescript
+// lib/moderation.ts
+export async function moderateContent(content: string) {
+  // Implement content moderation logic
+  // Check for inappropriate content, spam, etc.
+
+  const inappropriateWords = ['spam', 'inappropriate']
+  const hasInappropriateContent = inappropriateWords.some(word =>
+    content.toLowerCase().includes(word)
+  )
+
+  return !hasInappropriateContent
+}
+```
+
+## Deployment Considerations
+
+### Environment Management
+```bash
+# production environment variables
+NODE_ENV=production
+OPENAI_API_KEY=your_production_key
+REDIS_URL=your_redis_url
+REDIS_TOKEN=your_redis_token
+```
+
+### Monitoring
+Implement monitoring for AI service health:
+
+```typescript
+// lib/monitoring.ts
+export function logAIUsage(endpoint: string, tokens: number, duration: number) {
+  // Log to your monitoring service
+  console.log(`AI Usage: ${endpoint}, Tokens: ${tokens}, Duration: ${duration}ms`)
+}
+```
+
+## Conclusion
+
+Integrating AI into your Next.js applications opens up exciting possibilities for creating more intelligent, interactive, and personalized web experiences. By following these practices, you can build scalable AI-powered applications while maintaining performance and user experience.
+
+Remember to always monitor usage, implement proper security measures, and consider the ethical implications of AI integration. The future of web development is increasingly intelligent, and Next.js is perfectly positioned to help you build it.
+
+Start small with simple features like content suggestions, then expand to more complex AI capabilities as your application and expertise grow.

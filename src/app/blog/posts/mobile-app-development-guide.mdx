@@ -1,0 +1,660 @@
+---
+title: "Building Cross-Platform Mobile Apps with React Native and Expo"
+summary: "Complete guide to developing mobile applications using React Native and Expo. Learn best practices for performance, UI/UX, and deployment."
+image: "/images/projects/taxapp/taxapp.png"
+publishedAt: "2025-09-25"
+tag: "Mobile Development"
+---
+
+## Introduction
+
+React Native with Expo has revolutionized mobile app development, allowing developers to use JavaScript and React to build native mobile applications. This guide covers everything you need to know to build high-quality cross-platform mobile apps efficiently.
+
+## Setting Up Your Development Environment
+
+### Prerequisites and Installation
+
+```bash
+# Install Node.js (version 18+ recommended)
+# Install Expo CLI globally
+npm install -g @expo/cli
+
+# Create new Expo project
+npx create-expo-app MyAwesomeApp
+cd MyAwesomeApp
+
+# Start development server
+npx expo start
+```
+
+### Project Structure Best Practices
+
+```markdown
+MyAwesomeApp/
+├── app/                    # App Router (Expo Router)
+│   ├── _layout.tsx        # Root layout
+│   ├── index.tsx          # Home screen
+│   ├── profile.tsx        # Profile screen
+│   └── settings.tsx       # Settings screen
+├── components/            # Reusable components
+│   ├── common/           # Shared components
+│   └── screens/          # Screen-specific components
+├── constants/            # App constants
+├── hooks/                # Custom hooks
+├── services/             # API and external services
+├── types/               # TypeScript types
+├── utils/               # Utility functions
+└── app.json            # Expo configuration
+```
+
+## Core Concepts and Architecture
+
+### Navigation with Expo Router
+
+```typescript
+// app/_layout.tsx
+import { Stack } from 'expo-router'
+
+export default function RootLayout() {
+  return (
+    <Stack>
+      <Stack.Screen
+        name="index"
+        options={{
+          title: 'Home',
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+        }}
+      />
+      <Stack.Screen
+        name="profile"
+        options={{
+          title: 'My Profile',
+        }}
+      />
+    </Stack>
+  )
+}
+```
+
+### State Management
+
+#### Context API for Global State
+
+```typescript
+// contexts/AuthContext.tsx
+import React, { createContext, useContext, useState, ReactNode } from 'react'
+
+interface AuthContextType {
+  user: User | null
+  signIn: (email: string, password: string) => Promise<void>
+  signOut: () => void
+  loading: boolean
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined)
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<User | null>(null)
+  const [loading, setLoading] = useState(false)
+
+  const signIn = async (email: string, password: string) => {
+    setLoading(true)
+    try {
+      // Implementation
+    } catch (error) {
+      // Handle error
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const signOut = () => {
+    setUser(null)
+  }
+
+  return (
+    <AuthContext.Provider value={{ user, signIn, signOut, loading }}>
+      {children}
+    </AuthContext.Provider>
+  )
+}
+
+export function useAuth() {
+  const context = useContext(AuthContext)
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider')
+  }
+  return context
+}
+```
+
+#### Zustand for Complex State
+
+```typescript
+// stores/userStore.ts
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
+
+interface UserState {
+  user: User | null
+  preferences: UserPreferences
+  setUser: (user: User) => void
+  updatePreferences: (preferences: Partial<UserPreferences>) => void
+  clearUser: () => void
+}
+
+export const useUserStore = create<UserState>()(
+  persist(
+    (set) => ({
+      user: null,
+      preferences: {
+        theme: 'system',
+        notifications: true,
+        language: 'en',
+      },
+      setUser: (user) => set({ user }),
+      updatePreferences: (preferences) =>
+        set((state) => ({
+          preferences: { ...state.preferences, ...preferences },
+        })),
+      clearUser: () => set({ user: null }),
+    }),
+    {
+      name: 'user-storage',
+    }
+  )
+)
+```
+
+## UI/UX Design with React Native
+
+### Styling Approaches
+
+```typescript
+// styles/globalStyles.ts
+import { StyleSheet } from 'react-native'
+
+export const globalStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 16,
+    margin: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  text: {
+    fontSize: 16,
+    color: '#333',
+  },
+})
+```
+
+### Responsive Design
+
+```typescript
+// utils/responsive.ts
+import { Dimensions, PixelRatio } from 'react-native'
+
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window')
+
+const scale = SCREEN_WIDTH / 375 // Base iPhone width
+
+export function normalize(size: number) {
+  return Math.round(PixelRatio.roundToNearestPixel(size * scale))
+}
+
+export const responsive = {
+  width: (percentage: number) => (SCREEN_WIDTH * percentage) / 100,
+  height: (percentage: number) => (SCREEN_HEIGHT * percentage) / 100,
+}
+```
+
+### Dark Mode Implementation
+
+```typescript
+// hooks/useColorScheme.ts
+import { useColorScheme as _useColorScheme } from 'react-native'
+import { useContext } from 'react'
+import { ThemeContext } from '@/contexts/ThemeContext'
+
+export function useColorScheme() {
+  const systemTheme = _useColorScheme()
+  const { theme: appTheme } = useContext(ThemeContext)
+
+  return appTheme === 'system' ? systemTheme : appTheme
+}
+```
+
+```typescript
+// contexts/ThemeContext.tsx
+import React, { createContext, useState, ReactNode } from 'react'
+import { useColorScheme } from 'react-native'
+
+interface ThemeContextType {
+  theme: 'light' | 'dark' | 'system'
+  setTheme: (theme: 'light' | 'dark' | 'system') => void
+}
+
+const ThemeContext = createContext<ThemeContextType>({
+  theme: 'system',
+  setTheme: () => {},
+})
+
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('system')
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  )
+}
+```
+
+## API Integration and Data Management
+
+### REST API Client
+
+```typescript
+// services/api.ts
+import axios from 'axios'
+
+const api = axios.create({
+  baseURL: process.env.EXPO_PUBLIC_API_URL,
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+
+// Request interceptor for authentication
+api.interceptors.request.use(
+  (config) => {
+    const token = getStoredToken()
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
+    return config
+  },
+  (error) => Promise.reject(error)
+)
+
+// Response interceptor for error handling
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Handle token expiration
+      handleTokenExpiration()
+    }
+    return Promise.reject(error)
+  }
+)
+
+export default api
+```
+
+### Real-time Data with WebSockets
+
+```typescript
+// hooks/useWebSocket.ts
+import { useEffect, useRef, useState } from 'react'
+
+interface WebSocketHook {
+  sendMessage: (message: any) => void
+  lastMessage: any
+  readyState: number
+}
+
+export function useWebSocket(url: string): WebSocketHook {
+  const [lastMessage, setLastMessage] = useState<any>(null)
+  const [readyState, setReadyState] = useState(WebSocket.CONNECTING)
+  const ws = useRef<WebSocket | null>(null)
+
+  useEffect(() => {
+    ws.current = new WebSocket(url)
+
+    ws.current.onopen = () => {
+      setReadyState(WebSocket.OPEN)
+    }
+
+    ws.current.onmessage = (event) => {
+      setLastMessage(JSON.parse(event.data))
+    }
+
+    ws.current.onclose = () => {
+      setReadyState(WebSocket.CLOSED)
+    }
+
+    return () => {
+      ws.current?.close()
+    }
+  }, [url])
+
+  const sendMessage = (message: any) => {
+    if (ws.current?.readyState === WebSocket.OPEN) {
+      ws.current.send(JSON.stringify(message))
+    }
+  }
+
+  return { sendMessage, lastMessage, readyState }
+}
+```
+
+## Performance Optimization
+
+### Code Splitting and Lazy Loading
+
+```typescript
+// app/_layout.tsx
+import { Slot } from 'expo-router'
+
+export default function Layout() {
+  return <Slot />
+}
+```
+
+```typescript
+// app/profile.tsx
+import React, { Suspense } from 'react'
+import { View, Text } from 'react-native'
+
+const HeavyComponent = React.lazy(() => import('../components/HeavyComponent'))
+
+export default function Profile() {
+  return (
+    <View>
+      <Text>Profile Screen</Text>
+      <Suspense fallback={<Text>Loading...</Text>}>
+        <HeavyComponent />
+      </Suspense>
+    </View>
+  )
+}
+```
+
+### Image Optimization
+
+```typescript
+// components/OptimizedImage.tsx
+import React from 'react'
+import { Image } from 'expo-image'
+
+interface OptimizedImageProps {
+  source: string | { uri: string }
+  style?: any
+  placeholder?: string
+  contentFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
+}
+
+export function OptimizedImage({
+  source,
+  style,
+  placeholder,
+  contentFit = 'cover'
+}: OptimizedImageProps) {
+  return (
+    <Image
+      source={source}
+      style={style}
+      placeholder={placeholder}
+      contentFit={contentFit}
+      transition={300}
+      cachePolicy="memory-disk"
+      allowDownscaling={true}
+      placeholderContentFit="cover"
+    />
+  )
+}
+```
+
+### Memoization and Optimization
+
+```typescript
+// components/UserCard.tsx
+import React, { memo, useMemo } from 'react'
+import { View, Text, TouchableOpacity } from 'react-native'
+
+interface UserCardProps {
+  user: User
+  onPress: (user: User) => void
+}
+
+const UserCard = memo<UserCardProps>(({ user, onPress }) => {
+  const displayName = useMemo(() => {
+    return `${user.firstName} ${user.lastName}`
+  }, [user.firstName, user.lastName])
+
+  const handlePress = useMemo(() => {
+    return () => onPress(user)
+  }, [user, onPress])
+
+  return (
+    <TouchableOpacity onPress={handlePress} style={styles.card}>
+      <Text style={styles.name}>{displayName}</Text>
+      <Text style={styles.email}>{user.email}</Text>
+    </TouchableOpacity>
+  )
+})
+
+UserCard.displayName = 'UserCard'
+
+export default UserCard
+```
+
+## Testing and Quality Assurance
+
+### Unit Testing with Jest
+
+```typescript
+// __tests__/AuthContext.test.ts
+import { renderHook, act } from '@testing-library/react-native'
+import { AuthProvider, useAuth } from '../contexts/AuthContext'
+
+describe('AuthContext', () => {
+  it('should provide authentication state', () => {
+    const { result } = renderHook(() => useAuth(), {
+      wrapper: AuthProvider,
+    })
+
+    expect(result.current.user).toBeNull()
+    expect(result.current.loading).toBe(false)
+    expect(typeof result.current.signIn).toBe('function')
+    expect(typeof result.current.signOut).toBe('function')
+  })
+})
+```
+
+### Integration Testing
+
+```typescript
+// __tests__/LoginFlow.test.ts
+import React from 'react'
+import { render, fireEvent, waitFor } from '@testing-library/react-native'
+import LoginScreen from '../screens/LoginScreen'
+import { AuthProvider } from '../contexts/AuthContext'
+
+// Mock navigation
+const mockNavigate = jest.fn()
+jest.mock('@react-navigation/native', () => ({
+  useNavigation: () => ({
+    navigate: mockNavigate,
+  }),
+}))
+
+describe('Login Flow', () => {
+  it('should handle successful login', async () => {
+    const { getByPlaceholderText, getByText } = render(
+      <AuthProvider>
+        <LoginScreen />
+      </AuthProvider>
+    )
+
+    const emailInput = getByPlaceholderText('Email')
+    const passwordInput = getByPlaceholderText('Password')
+    const loginButton = getByText('Login')
+
+    fireEvent.changeText(emailInput, 'test@example.com')
+    fireEvent.changeText(passwordInput, 'password123')
+    fireEvent.press(loginButton)
+
+    await waitFor(() => {
+      expect(mockNavigate).toHaveBeenCalledWith('Home')
+    })
+  })
+})
+```
+
+## Deployment and Distribution
+
+### Building for Production
+
+```bash
+# Build for Android APK
+npx expo build:android --type apk
+
+# Build for iOS
+npx expo build:ios --type archive
+
+# Build for web (if needed)
+npx expo export --platform web
+```
+
+### App Store Deployment
+
+```json
+// app.json
+{
+  "expo": {
+    "name": "MyAwesomeApp",
+    "slug": "my-awesome-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.myawesomeapp"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.yourcompany.myawesomeapp"
+    }
+  }
+}
+```
+
+### Over-The-Air Updates
+
+```typescript
+// app/_layout.tsx
+import { useEffect } from 'react'
+import { Updates } from 'expo-updates'
+
+export default function RootLayout() {
+  useEffect(() => {
+    async function onFetchUpdateAsync() {
+      try {
+        const update = await Updates.checkForUpdateAsync()
+
+        if (update.isAvailable) {
+          await Updates.fetchUpdateAsync()
+          await Updates.reloadAsync()
+        }
+      } catch (error) {
+        console.error('Error fetching latest update:', error)
+      }
+    }
+
+    onFetchUpdateAsync()
+  }, [])
+
+  return (
+    // Your layout
+  )
+}
+```
+
+## Continuous Integration
+
+### GitHub Actions Workflow
+
+```yaml
+# .github/workflows/expo-release.yml
+name: Expo Release
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Setup Expo CLI
+        run: npm install -g @expo/cli
+      - name: Install dependencies
+        run: npm install
+      - name: Publish to Expo
+        run: expo publish --release-channel production
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+```
+
+## Best Practices and Common Pitfalls
+
+### Performance Tips
+
+- **Avoid unnecessary renders**: Use `memo`, `useMemo`, `useCallback`
+- **Optimize images**: Use appropriate sizes and formats
+- **Lazy load components**: Especially for complex screens
+- **Bundle size**: Monitor and reduce bundle size
+- **Network requests**: Implement caching and offline support
+
+### UX Considerations
+
+- **Platform conventions**: Follow iOS and Android design guidelines
+- **Accessibility**: Support screen readers, high contrast modes
+- **Error handling**: Provide helpful error messages
+- **Loading states**: Always show loading indicators
+- **Offline support**: Implement offline functionality
+
+### Maintenance
+
+- **Version management**: Use semantic versioning
+- **Deprecation handling**: Plan for API changes
+- **User feedback**: Implement crash reporting and user analytics
+- **Security updates**: Regularly update dependencies
+
+## Conclusion
+
+Building mobile apps with React Native and Expo provides a powerful, efficient way to create cross-platform applications. By following these best practices, you can develop high-quality apps that provide excellent user experiences on both iOS and Android.
+
+Remember to stay updated with React Native and Expo developments, as both frameworks are continuously improving. Focus on creating intuitive, performant applications that solve real user problems, and you'll be successful in the mobile app market.
+
+Start with a clear understanding of your users' needs, design thoughtfully, implement efficiently, and iterate based on user feedback. Happy coding!
