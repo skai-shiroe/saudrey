@@ -104,8 +104,8 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.png",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
+  title: `${person.name} - Full-Stack Developer & Project Manager | Freelance Portfolio`,
+  description: `Portfolio of Audrey Senou, a freelance full-stack developer and project manager specializing in modern web applications, mobile apps, and AI solutions. Based in Africa.`,
   headline: <>Designing and building impactful digital solutions</>,
   featured: {
     display: true,
@@ -133,8 +133,8 @@ const home: Home = {
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  title: `About Audrey Senou – Full-Stack Developer & Project Manager`,
+  description: `Learn about Audrey Senou's expertise in web development, mobile apps, AI integration, and digital project management. Freelance full-stack developer based in Africa specializing in Next.js, React, Node.js, and modern DevOps.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -150,7 +150,7 @@ const about: About = {
     display: true,
     title: "Introduction",
     description:
-      "I’m Audrey Senou, a web & mobile developer and digital project manager. I help businesses and organizations turn their ideas into real-world solutions: business applications, e-commerce platforms, management tools, and innovative online experiences. My approach combines creativity, efficiency, and attention to detail.",
+      "I'm a passionate full-stack developer and project manager specializing in modern web technologies like Next.js, React, Node.js, and AI integration. I've built numerous production applications including e-commerce platforms, stock management systems, and AI-powered solutions. As a freelance developer in Africa, I focus on delivering scalable, high-performance applications that drive business growth and user satisfaction.",
   },
 
 
@@ -311,8 +311,8 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
+  title: `Design & Tech Blog – ${person.name} | Web Development Insights`,
+  description: `Read Audrey Senou's articles on full-stack development, UI/UX design, AI integration, project management tips, and modern web technologies. Practical insights for developers and digital professionals.`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
@@ -320,8 +320,8 @@ const blog: Blog = {
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  title: `Portfolio Projects – ${person.name} | Full-Stack Development & Design`,
+  description: `Explore Audrey Senou's portfolio of full-stack web applications, mobile apps, AI projects, and digital management solutions. From e-commerce platforms to stock management systems.`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
