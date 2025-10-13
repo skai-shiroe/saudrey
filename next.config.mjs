@@ -17,11 +17,22 @@ const nextConfig = {
         pathname: "**",
       },
     ],
+    formats: ['image/avif', 'image/webp'],
   },
   sassOptions: {
     compiler: "modern",
     silenceDeprecations: ["legacy-js-api"],
   },
+  experimental: {
+    optimizeCss: true,
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+  swcMinify: true,
+  // Performance optimizations
+  poweredByHeader: false,
+  compress: true,
 };
 
 export default withMDX(nextConfig);
