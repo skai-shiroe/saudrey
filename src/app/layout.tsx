@@ -2,20 +2,12 @@ import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
 
-
 import classNames from "classnames";
 
-import {
-  Background,
-  Column,
-  Flex,
-  Meta,
-  opacity,
-  RevealFx,
-  SpacingToken,
-} from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
-import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
+import type { opacity, SpacingToken } from "@once-ui-system/core";
+import { Background, Column, Flex, Meta, RevealFx } from "@once-ui-system/core";
+import { Footer, Header, Providers, RouteGuard } from "@/components";
+import { baseURL, dataStyle, effects, fonts, home, style } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -46,10 +38,10 @@ export default async function RootLayout({
       )}
     >
       <head>
-        {/** biome-ignore lint/correctness/useUniqueElementIds: <explanation> */}
+        {/** biome-ignore lint/correctness/useUniqueElementIds: Need same ID for script injection */}
 <script
           id="theme-init"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Required for dynamic theme initialization script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
