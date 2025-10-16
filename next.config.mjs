@@ -32,6 +32,20 @@ const nextConfig = {
   // Performance optimizations
   poweredByHeader: false,
   compress: true,
+
+  redirects: async () => [
+    {
+      source: '/:path*',
+      has: [
+        {
+          type: 'host',
+          value: 'senouaudrey.me',
+        },
+      ],
+      destination: 'https://www.senouaudrey.me/:path*',
+      permanent: true, // génère un code 308
+    },
+  ],
 };
 
 export default withMDX(nextConfig);
