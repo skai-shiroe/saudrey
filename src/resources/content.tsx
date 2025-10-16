@@ -23,7 +23,7 @@ const person: Person = {
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  title: <>Subscribe to {person.firstName}&apos;s Newsletter</>,
   description: (
     <>
       Join my weekly newsletter where I share strategies on web development, design, project
@@ -122,7 +122,7 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Audrey Senou, a web developer and project manager creating sleek,
+      I&apos;m Audrey Senou, a web developer and project manager creating sleek,
       functional apps that blend technology and design.
     </>
   ),
