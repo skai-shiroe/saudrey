@@ -1,3 +1,4 @@
+// biome-ignore assist/source/organizeImports: <explanation>
 import type {
   About,
   Blog,
@@ -8,7 +9,7 @@ import type {
   Social,
   Work,
 } from "@/types";
-import { Line, Logo, Row, Text } from "@once-ui-system/core";
+import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Audrey",
