@@ -123,8 +123,8 @@ const home: Home = {
   },
   subline: (
     <>
-      I&apos;m Audrey Senou, a web developer and project manager creating sleek,
-      functional apps that blend technology and design.
+      I&apos;m Audrey Senou, a data scientist, web developer, 
+      and project manager crafting modern, functional applications that unite technology and thoughtful design.
     </>
   ),
 };
