@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import { truths } from "@/resources/truths";
-import { Meta, Column, Text, Row, Icon } from "@once-ui-system/core";
+import { Meta, Column, Text, Row, RevealFx } from "@once-ui-system/core";
 import { baseURL } from "@/resources";
 import { Metadata } from "next";
 import { TruthCard } from "@/components/TruthCard";
+import { RedirectToTruths } from "@/app/truths/[id]/RedirectToTruths";
 
 export async function generateStaticParams() {
   return truths.map((truth) => ({
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   if (!truth) return {};
 
   return Meta.generate({
-    title: `Vérité #${truth.id} — Audrey Senou`,
+    title: `En vérité en vérité... — Vérité #${truth.id}`,
     description: truth.quote,
     baseURL: baseURL,
     image: `/api/og/truth?id=${truth.id}`,
@@ -36,23 +37,15 @@ export default async function TruthDetailPage({ params }: { params: Promise<{ id
 
   return (
     <Column fillWidth paddingX="l" paddingTop="l" gap="40" horizontal="center" vertical="center" style={{ minHeight: '80vh' }}>
-      <Column fillWidth maxWidth="s" gap="32">
-        <Row horizontal="start">
-            <SmartLink href="/truths" style={{ textDecoration: 'none' }}>
-                <Row vertical="center" gap="8">
-                    <Icon name="arrowLeft" size="s" onBackground="neutral-weak" />
-                    <Text variant="label-default-s" onBackground="neutral-weak">Back to all truths</Text>
-                </Row>
-            </SmartLink>
-        </Row>
-
+      <RedirectToTruths id={id} />
+      <Column fillWidth maxWidth="s" gap="32" horizontal="center">
+        <RevealFx translateY="16">
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            Redirecting to the full gospel...
+          </Text>
+        </RevealFx>
         <TruthCard truth={truth} index={0} />
       </Column>
     </Column>
   );
-}
-
-// Simple SmartLink internal wrapper if not imported
-function SmartLink({ href, children, style }: any) {
-    return <a href={href} style={style}>{children}</a>
 }
