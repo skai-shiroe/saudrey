@@ -249,3 +249,7 @@ export interface Gallery extends BasePageConfig {
     orientation: string;
   }>;
 }
+/**
+ * Truths page configuration.
+ */
+export interface Truths extends BasePageConfig {}

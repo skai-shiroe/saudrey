@@ -7,6 +7,7 @@ import type {
   Newsletter,
   Person,
   Social,
+  Truths,
   Work,
 } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
@@ -305,6 +306,13 @@ const work: Work = {
   description: `Explore Audrey Senou's work: intelligent web applications, advanced data analysis, and high-value automated systems.`,
 };
 
+const truths: Truths = {
+  path: "/truths",
+  label: "Truths",
+  title: `Tech Truths & Dev Gospel – ${person.name}`,
+  description: `Discover the "En vérité en vérité..." series: a collection of tech insights, dev humor, and software engineering wisdom by ${person.name}.`,
+};
+
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
@@ -356,4 +364,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, mailchimp, home, about, blog, work, gallery };
+export { person, social, newsletter, mailchimp, home, about, blog, work, gallery, truths };

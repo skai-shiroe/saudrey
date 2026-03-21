@@ -138,7 +138,7 @@ export default function About() {
             )}
           </Column>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column className={styles.blockAlign} flex={9} fillWidth>
           <Column
             id={about.intro.title}
             fillWidth
@@ -237,7 +237,7 @@ export default function About() {
 
           {about.work.display && (
             <RevealFx translateY="16" delay={0.6}>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h2" id={about.work.title} variant="display-strong-xs" marginBottom="m">
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40" paddingLeft="20" borderLeft="brand-alpha-weak">
@@ -279,27 +279,6 @@ export default function About() {
                         ),
                       )}
                     </Column>
-                    {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
                   </Column>
                 ))}
               </Column>
@@ -307,85 +286,75 @@ export default function About() {
           )}
 
           {about.studies.display && (
-            <RevealFx translateY="16" delay={0.8}>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-                {about.studies.title}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.description}
-                    </Text>
-                  </Column>
-                ))}
+            <RevealFx translateY="16" delay={0.8} fillWidth>
+              <Column fillWidth gap="m">
+                <Heading as="h2" id={about.studies.title} variant="display-strong-xs">
+                  {about.studies.title}
+                </Heading>
+                <Grid columns="2" s={{ columns: 1 }} gap="l" marginBottom="40">
+                  {about.studies.institutions.map((institution, index) => (
+                    <Column
+                      key={`${institution.name}-${index}`}
+                      fillWidth
+                      gap="4"
+                      padding="24"
+                      radius="l"
+                      background="neutral-alpha-weak"
+                      border="neutral-alpha-weak"
+                    >
+                      <Text id={institution.name} variant="heading-strong-l">
+                        {institution.name}
+                      </Text>
+                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                        {institution.description}
+                      </Text>
+                    </Column>
+                  ))}
+                </Grid>
               </Column>
             </RevealFx>
           )}
 
           {about.technical.display && (
-            <RevealFx translateY="16" delay={1}>
-              <Heading
-                as="h2"
-                id={about.technical.title}
-                variant="display-strong-s"
-                marginBottom="40"
-              >
-                {about.technical.title}
-              </Heading>
-              <Grid columns="2" s={{ columns: 1 }} gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column
-                    key={`${skill}-${index}`}
-                    fillWidth
-                    gap="4"
-                    padding="24"
-                    radius="l"
-                    background="neutral-alpha-weak"
-                    border="neutral-alpha-weak"
-                  >
-                    <Text id={skill.title} variant="heading-strong-l">
-                      {skill.title}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.tags && skill.tags.length > 0 && (
-                      <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
-                            {tag.name}
-                          </Tag>
-                        ))}
-                      </Row>
-                    )}
-                    {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
-                ))}
-              </Grid>
+            <RevealFx translateY="16" delay={1} fillWidth>
+              <Column fillWidth gap="m">
+                <Heading
+                  as="h2"
+                  id={about.technical.title}
+                  variant="display-strong-xs"
+                >
+                  {about.technical.title}
+                </Heading>
+                <Grid columns="2" s={{ columns: 1 }} gap="l">
+                  {about.technical.skills.map((skill, index) => (
+                    <Column
+                      key={`${skill}-${index}`}
+                      fillWidth
+                      gap="4"
+                      padding="24"
+                      radius="l"
+                      background="neutral-alpha-weak"
+                      border="neutral-alpha-weak"
+                    >
+                      <Text id={skill.title} variant="heading-strong-l">
+                        {skill.title}
+                      </Text>
+                      <Text variant="body-default-m" onBackground="neutral-weak">
+                        {skill.description}
+                      </Text>
+                      {skill.tags && skill.tags.length > 0 && (
+                        <Row wrap gap="8" paddingTop="8">
+                          {skill.tags.map((tag, tagIndex) => (
+                            <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
+                              {tag.name}
+                            </Tag>
+                          ))}
+                        </Row>
+                      )}
+                    </Column>
+                  ))}
+                </Grid>
+              </Column>
             </RevealFx>
           )}
 
@@ -393,7 +362,7 @@ export default function About() {
             <RevealFx translateY="16" delay={1.2}>
               <Column fillWidth gap="l">
                 <Column fillWidth gap="4">
-                  <Heading as="h2" id="books" variant="display-strong-s" marginBottom="m">
+                  <Heading as="h2" id="books" variant="display-strong-xs" marginBottom="m">
                     Books
                   </Heading>
                   <Text variant="body-default-m" onBackground="neutral-weak">
@@ -408,7 +377,7 @@ export default function About() {
                   </Row>
                 </Column>
                 <Column fillWidth gap="4">
-                  <Heading as="h2" id="games" variant="display-strong-s" marginBottom="m">
+                  <Heading as="h2" id="games" variant="display-strong-xs" marginBottom="m">
                     Games
                   </Heading>
                   <Text variant="body-default-m" onBackground="neutral-weak">
