@@ -1,6 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import { truths } from "@/resources/truths";
-import { Meta, Column, Heading, Text, Row, Icon, Section } from "@once-ui-system/core";
+import { Meta, Column, Heading, Text, Row, Icon } from "@once-ui-system/core";
 import { baseURL, person, truths as truthsConfig } from "@/resources";
 import { Metadata } from "next";
 import { TruthCard } from "@/components/TruthCard";
