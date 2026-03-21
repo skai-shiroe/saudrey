@@ -1,6 +1,5 @@
 import { getPosts } from "@/utils/utils";
-import { Grid } from "@once-ui-system/core";
-import Post from "./Post";
+import { PostList } from "./PostList";
 
 interface PostsProps {
   range?: [number] | [number, number];
@@ -21,10 +20,10 @@ export function Posts({
 
   // Exclude by slug (exact match)
   if (exclude.length) {
-    allBlogs = allBlogs.filter((post) => !exclude.includes(post.slug));
+    allBlogs = allBlogs.filter((post: any) => !exclude.includes(post.slug));
   }
 
-  const sortedBlogs = allBlogs.sort((a, b) => {
+  const sortedBlogs = allBlogs.sort((a: any, b: any) => {
     return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
   });
 
@@ -33,14 +32,12 @@ export function Posts({
     : sortedBlogs;
 
   return (
-    <>
-      {displayedBlogs.length > 0 && (
-        <Grid columns={columns} s={{ columns: 1 }} fillWidth marginBottom="40" gap="16">
-          {displayedBlogs.map((post) => (
-            <Post key={post.slug} post={post} thumbnail={thumbnail} direction={direction} />
-          ))}
-        </Grid>
-      )}
-    </>
+    <PostList
+      allPosts={allBlogs}
+      range={range}
+      columns={columns}
+      thumbnail={thumbnail}
+      direction={direction}
+    />
   );
 }

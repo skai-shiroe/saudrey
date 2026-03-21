@@ -8,6 +8,7 @@ export {
   blog,
   work,
   gallery,
+  truths,
 } from "./content";
 
 export {

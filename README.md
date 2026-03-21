@@ -1,1 +1,1 @@
-
+Script Magique : Pour que tu puisses ajouter tes propres vérités super facilement, j'ai créé un script. Il te suffit de taper cette commande dans ton terminal : bun run scripts/add-truth.ts "le backend est la partie immergée de l'iceberg" 
