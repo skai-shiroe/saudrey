@@ -12,6 +12,7 @@ import {
   Meta,
   Schema,
   Row,
+  RevealFx,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -104,7 +105,9 @@ export default function About() {
             flex={3}
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
+          <RevealFx translateY="8" delay={0.2}>
+            <Avatar className="floating" src={person.avatar} size="xl" />
+          </RevealFx>
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               {person.location}
@@ -153,16 +156,20 @@ export default function About() {
                 />
               </Row>
             )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
-            </Heading>
-            <Text
-              className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
-            >
-              {person.role}
-            </Text>
+            <RevealFx translateY="4">
+              <Heading className={styles.textAlign} variant="display-strong-xl">
+                {person.name}
+              </Heading>
+            </RevealFx>
+            <RevealFx translateY="8" delay={0.2}>
+              <Text
+                className={styles.textAlign}
+                variant="display-default-xs"
+                onBackground="neutral-weak"
+              >
+                {person.role}
+              </Text>
+            </RevealFx>
             {social.length > 0 && (
               <Row
                 className={styles.blockAlign}
@@ -206,13 +213,15 @@ export default function About() {
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              {about.intro.description}
-            </Column>
+            <RevealFx translateY="12" delay={0.4}>
+              <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+                {about.intro.description}
+              </Column>
+            </RevealFx>
           )}
 
           {about.work.display && (
-            <>
+            <RevealFx translateY="16" delay={0.6}>
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
@@ -267,11 +276,11 @@ export default function About() {
                   </Column>
                 ))}
               </Column>
-            </>
+            </RevealFx>
           )}
 
           {about.studies.display && (
-            <>
+            <RevealFx translateY="16" delay={0.8}>
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
@@ -287,11 +296,11 @@ export default function About() {
                   </Column>
                 ))}
               </Column>
-            </>
+            </RevealFx>
           )}
 
           {about.technical.display && (
-            <>
+            <RevealFx translateY="16" delay={1}>
               <Heading
                 as="h2"
                 id={about.technical.title}
@@ -342,11 +351,11 @@ export default function About() {
                   </Column>
                 ))}
               </Column>
-            </>
+            </RevealFx>
           )}
 
           {about.beyond.display && (
-            <>
+            <RevealFx translateY="16" delay={1.2}>
               <Column fillWidth gap="l">
                 <Column fillWidth gap="4">
                   <Heading as="h2" id="books" variant="display-strong-s" marginBottom="m">
@@ -379,7 +388,7 @@ export default function About() {
                   </Row>
                 </Column>
               </Column>
-            </>
+            </RevealFx>
           )}
         </Column>
       </Row>

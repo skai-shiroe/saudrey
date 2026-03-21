@@ -39,7 +39,7 @@ export default async function RootLayout({
     >
       <head>
         {/** biome-ignore lint/correctness/useUniqueElementIds: Need same ID for script injection */}
-<script
+        <script
           id="theme-init"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: Required for dynamic theme initialization script
           dangerouslySetInnerHTML={{
@@ -89,8 +89,19 @@ export default async function RootLayout({
                       root.setAttribute('data-' + key, value);
                     }
                   });
+
+                  // Scroll Progress Logic
+                  window.addEventListener('scroll', () => {
+                    const scrollProgress = document.getElementById('scroll-progress');
+                    if (scrollProgress) {
+                      const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                      const scrollCurrent = window.scrollY;
+                      const scrollPercent = (scrollCurrent / scrollTotal) * 100;
+                      scrollProgress.style.width = scrollPercent + '%';
+                    }
+                  });
                 } catch (e) {
-                  console.error('Failed to initialize theme:', e);
+                  console.error('Failed to initialize theme or scroll progress:', e);
                   document.documentElement.setAttribute('data-theme', 'dark');
                 }
               })();
@@ -108,6 +119,7 @@ export default async function RootLayout({
           padding="0"
           horizontal="center"
         >
+          <div id="scroll-progress" />
           <RevealFx fill position="absolute">
             <Background
               mask={{
