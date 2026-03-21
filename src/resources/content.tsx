@@ -15,7 +15,7 @@ const person: Person = {
   firstName: "Audrey",
   lastName: "Senou",
   name: "Audrey Senou",
-  role: "Web & Mobile Development | Digital Project Management | Virtual Assistance",
+  role: "Web & Mobile Development | Data Science & Analytics | Digital Solutions Architect",
   avatar: "/images/skai.jpg",
   email: "senou.audrey.dev@gmail.com",
   location: "Africa/Lome",
@@ -27,9 +27,8 @@ const newsletter: Newsletter = {
   title: <>Subscribe to {person.firstName}&apos;s Newsletter</>,
   description: (
     <>
-      Join my weekly newsletter where I share strategies on web development, design, project
-      management, and AI—practical insights to help you build smarter digital solutions and stay
-      ahead in the tech world.
+      Join my weekly newsletter where I share strategies on data science, high-performance web development, 
+      and AI automation—practical insights to transform data into strategic tools.
     </>
   ),
 };
@@ -105,9 +104,9 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.png",
   label: "Home",
-  title: `${person.name} - Full-Stack Developer & Project Manager | Freelance Portfolio`,
-  description: `Portfolio of Audrey Senou, a freelance full-stack developer and project manager specializing in modern web applications, mobile apps, and AI solutions. Based in Africa.`,
-  headline: <>Designing and building impactful digital solutions</>,
+  title: `${person.name} - Data-Driven Developer & Data Scientist | Freelance Portfolio`,
+  description: `Portfolio of Audrey Senou, a freelance full-stack developer and data scientist specialized in building intelligent applications that transform data into strategic decision tools.`,
+  headline: <>I transform data into strategic tools</>,
   featured: {
     display: true,
     title: (
@@ -123,8 +122,8 @@ const home: Home = {
   },
   subline: (
     <>
-      I&apos;m Audrey Senou, a data scientist, web developer, 
-      and project manager crafting modern, functional applications that unite technology and thoughtful design.
+      As a Developer & Data Analyst, I build digital solutions capable of analyzing, predicting, and optimizing.
+      I combine software development, statistical analysis, and automation to generate value.
     </>
   ),
 };
@@ -134,8 +133,8 @@ const home: Home = {
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About Audrey Senou – Full-Stack Developer & Project Manager`,
-  description: `Learn about Audrey Senou's expertise in web development, mobile apps, AI integration, and digital project management. Freelance full-stack developer based in Africa specializing in Next.js, React, Node.js, and modern DevOps.`,
+  title: `About Audrey Senou – Data-Driven Developer & Data Scientist`,
+  description: `Discover Audrey Senou's profile: expert in web development (Next.js), data science (Python/ML), and intelligent automation. Based in Africa, solution-oriented.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -150,8 +149,14 @@ const about: About = {
   intro: {
     display: true,
     title: "Introduction",
-    description:
-      "I'm a passionate full-stack developer and project manager specializing in modern web technologies like Next.js, React, Node.js, and AI integration. I've built numerous production applications including e-commerce platforms, stock management systems, and AI-powered solutions. As a freelance developer in Africa, I focus on delivering scalable, high-performance applications that drive business growth and user satisfaction.",
+    description: (
+      <>
+        Solution-oriented web and mobile developer, with a specialization in Data Science and data analysis, 
+        I design intelligent applications capable of leveraging data to generate value. 
+        I combine software development, statistical analysis, and automation to create high-performance, 
+        useful, and decision-driven solutions.
+      </>
+    ),
   },
 
 
@@ -159,17 +164,17 @@ const about: About = {
 
   work: {
     display: true, // set to false to hide this section
-    title: "Work Experience",
+    title: "Experiences & Solutions",
     experiences: [
       {
         company: "Freelance",
         timeframe: "2025 - Present",
-        role: "Web & Mobile Developer / Project Manager",
+        role: "Data-Driven Developer & Project Manager",
         achievements: [
-          "Developed AllControl, a stock management system with predictive requisition features for businesses.",
-          "Built a taxpayer management application with automated data processing, reducing manual work by 50%.",
-          "Created a system for anonymous reporting, allowing secure public consultation without registration.",
-          "Designed and deployed MiabeHub, a content platform with unique editorial style and high user engagement.",
+          "Business Intelligence: Development of AllControl, a stock management system with predictive requisition features.",
+          "Tax Automation: Taxpayer management application with automated data processing and analysis, reducing manual work by 50%.",
+          "Content Analysis: Design of MiabeHub, a platform with user engagement analysis and editorial strategy optimization.",
+          "Decision Support: Implementation of intelligent dashboards to optimize business processes for various clients.",
         ],
         images: [
           {
@@ -183,20 +188,10 @@ const about: About = {
       {
         company: "Freelance",
         timeframe: "2024 - 2025",
-        role: "Web Developer & Designer",
+        role: "Web Developer & Data Analyst",
         achievements: [
-          "Developed an e-commerce platform for a local agricultural business, integrating product catalog and online sales.",
-          "Implemented a digital solution for managing pisciculture operations, streamlining workflow and tracking stock.",
-        ],
-        images: [],
-      },
-      {
-        company: "Freelance",
-        timeframe: "2023 - 2024",
-        role: "Frontend Developer & UI/UX Designer",
-        achievements: [
-          "Created multiple client websites and applications, combining modern UI/UX and responsive design.",
-          "Integrated automation tools and dashboards to help clients manage operations efficiently.",
+          "Agricultural Intelligence: E-commerce platform with catalog analysis and sales tracking to optimize stocks.",
+          "Digital Management: Management solution for fish farming with growth tracking and production forecasts.",
         ],
         images: [],
       },
@@ -207,15 +202,15 @@ const about: About = {
 
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: "Education",
     institutions: [
       {
         name: "ESGIS, Togo",
-        description: "Studied Computer Science with a focus on software development and database management.",
+        description: "Computer Science with a focus on software development and database management.",
       },
       {
-        name: "Online Courses & Certifications",
-        description: "Completed courses in web development, AI, DevOps, and digital project management.",
+        name: "Online Certifications",
+        description: "Data Science (Python), Machine Learning, DevOps, and Digital Project Management.",
       },
     ],
   },
@@ -226,38 +221,15 @@ const about: About = {
   title: "Technical Skills",
   skills: [
     {
-      title: "Figma & UI/UX Design",
-      description: "Expert in prototyping and designing intuitive interfaces with Figma, Tailwind, and custom design systems.",
+      title: "💻 Software Development",
+      description: "Building robust and scalable applications with the most performant frameworks on the market.",
       tags: [
-        { name: "Figma", icon: "figma" },
-        { name: "UI/UX", icon: "figma" },
-        { name: "Design Systems", icon: "figma" },
-      ],
-      images: [
-        {
-          src: "/images/projects/think/think.png",
-          alt: "UI/UX project",
-          width: 16,
-          height: 9,
-        },
-        {
-          src: "/images/projects/miabehub/miabehub.png",
-          alt: "UI/UX project",
-          width: 16,
-          height: 9,
-        },
-      ],
-    },
-    {
-      title: "Next.js & Web Development",
-      description: "Building modern web applications with Next.js, TypeScript, Tailwind CSS, Elysia.js, and Prisma.",
-      tags: [
-        { name: "JavaScript", icon: "javascript" },
         { name: "Next.js", icon: "nextjs" },
         { name: "TypeScript", icon: "typescript" },
-        { name: "Prisma", icon: "prisma" },
-        { name: "Elysia.js", icon: "javascript" },
-        { name: "Wordpress", icon: "wordpress" },
+        { name: "Tailwind CSS", icon: "figma" },
+        { name: "Elysia.js (Bun)", icon: "javascript" },
+        { name: "Prisma & PostgreSQL", icon: "prisma" },
+        { name: "WordPress (Blocksy)", icon: "wordpress" },
       ],
       images: [
         {
@@ -269,22 +241,32 @@ const about: About = {
       ],
     },
     {
-      title: "DevOps & Automation",
-      description: "Experience with Docker, CI/CD pipelines, and workflow automation to optimize project delivery and deployment.",
+      title: "📊 Data & Analysis",
+      description: "Transforming raw data into actionable insights via statistical analysis and Machine Learning.",
       tags: [
-        { name: "Docker", icon: "docker" },
-        { name: "CI/CD", icon: "ci" },
-        { name: "Automation", icon: "automation" },
+        { name: "Python (Pandas, NumPy)", icon: "python" },
+        { name: "Machine Learning", icon: "tensorflow" },
+        { name: "Statistics (Chi2, Cramer V)", icon: "python" },
+        { name: "Data Cleaning", icon: "python" },
+        { name: "Visualization", icon: "python" },
       ],
-      images: [],
+      images: [
+        {
+          src: "/images/projects/think/think.png",
+          alt: "UI/UX project",
+          width: 16,
+          height: 9,
+        },
+      ],
     },
     {
-      title: "AI & Machine Learning",
-      description: "Familiar with Python, TensorFlow, and PyTorch for integrating AI solutions into projects and automating tasks.",
+      title: "⚙️ Automation & Systems",
+      description: "Process optimization via intelligent bots and strategic decision-oriented systems.",
       tags: [
-        { name: "Python", icon: "python" },
-        { name: "TensorFlow", icon: "tensorflow" },
-        { name: "PyTorch", icon: "pytorch" },
+        { name: "Generation Bots", icon: "automation" },
+        { name: "Automation (CI/CD)", icon: "ci" },
+        { name: "Docker", icon: "docker" },
+        { name: "Decision Systems", icon: "automation" },
       ],
       images: [],
     },
@@ -312,19 +294,15 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: `Design, Tech & Personal Blog – ${person.name}`,
-  description: `Read Audrey Senou's articles on full-stack development, UI/UX design, AI integration, project management tips, and modern web technologies. Practical insights for developers and digital professionals.`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: `Data Tech & Strategy Blog – ${person.name}`,
+  description: `Read Audrey Senou's articles on development, Data Science, automation, and strategic digital project management.`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Portfolio Projects – ${person.name} | Full-Stack Development & Design`,
-  description: `Explore Audrey Senou's portfolio of full-stack web applications, mobile apps, AI projects, and digital management solutions. From e-commerce platforms to stock management systems.`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  title: `Portfolio Projects – ${person.name} | Data-Driven Solutions`,
+  description: `Explore Audrey Senou's work: intelligent web applications, advanced data analysis, and high-value automated systems.`,
 };
 
 const gallery: Gallery = {
