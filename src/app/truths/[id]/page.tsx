@@ -37,6 +37,7 @@ export default async function TruthDetailPage({ params }: { params: Promise<{ id
 
   return (
     <Column fillWidth paddingX="l" paddingTop="l" gap="40" horizontal="center" vertical="center" style={{ minHeight: '80vh' }}>
+      <meta httpEquiv="refresh" content={`0; url=${baseURL}/truths`} />
       <RedirectToTruths id={id} />
       <Column fillWidth maxWidth="s" gap="32" horizontal="center">
         <RevealFx translateY="16">
