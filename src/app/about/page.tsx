@@ -13,6 +13,7 @@ import {
   Schema,
   Row,
   RevealFx,
+  Grid,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -106,7 +107,21 @@ export default function About() {
             horizontal="center"
           >
           <RevealFx translateY="8" delay={0.2}>
-            <Avatar className="floating" src={person.avatar} size="xl" />
+            <Row
+              position="relative"
+              padding="12"
+              radius="full"
+              marginBottom="m"
+            >
+              <Row
+                position="absolute"
+                fill
+                background="brand-alpha-medium"
+                radius="full"
+                style={{ filter: "blur(48px)", opacity: 0.5 }}
+              />
+              <Avatar className="floating" src={person.avatar} size="xl" />
+            </Row>
           </RevealFx>
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
@@ -225,9 +240,21 @@ export default function About() {
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="l" marginBottom="40" paddingLeft="20" borderLeft="brand-alpha-weak">
                 {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth position="relative">
+                    <Row
+                      position="absolute"
+                      width="12"
+                      height="12"
+                      radius="full"
+                      background="brand-strong"
+                      style={{ 
+                        left: "-26px", 
+                        top: "12px",
+                        boxShadow: "0 0 12px var(--brand-solid-strong)" 
+                      }}
+                    />
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
@@ -309,9 +336,17 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
+              <Grid columns="2" s={{ columns: 1 }} gap="l">
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
+                  <Column
+                    key={`${skill}-${index}`}
+                    fillWidth
+                    gap="4"
+                    padding="24"
+                    radius="l"
+                    background="neutral-alpha-weak"
+                    border="neutral-alpha-weak"
+                  >
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
                     </Text>
@@ -350,7 +385,7 @@ export default function About() {
                     )}
                   </Column>
                 ))}
-              </Column>
+              </Grid>
             </RevealFx>
           )}
 
