@@ -14,6 +14,7 @@ import {
   HiOutlineRocketLaunch,
   HiOutlineSparkles,
   HiOutlineShare,
+  HiOutlineArrowLeft,
 } from "react-icons/hi2";
 
 import {
@@ -82,6 +83,7 @@ export const iconLibrary: Record<string, IconType> = {
   telegram: FaTelegram,
   sparkles: HiOutlineSparkles,
   share: HiOutlineShare,
+  arrowLeft: HiOutlineArrowLeft,
 };
 
 export type IconLibrary = typeof iconLibrary;
