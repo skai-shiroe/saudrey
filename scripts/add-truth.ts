@@ -16,7 +16,7 @@ const formatQuote = newQuote.startsWith("En vérité en vérité")
 
 const rawContent = fs.readFileSync(truthPath, "utf-8");
 
-const truthsMatch = rawContent.match(/export const truths: Truth\[] = \[(.*)\];/s);
+const truthsMatch = rawContent.match(/export const truths: Truth\[] = \[([\s\S]*)\];/);
 
 if (!truthsMatch) {
   console.error("Could not find truths array in truths.ts");
@@ -36,7 +36,7 @@ const newEntry = `
   },`;
 
 const newContent = rawContent.replace(
-  /export const truths: Truth\[] = \[(.*)\];/s,
+  /export const truths: Truth\[] = \[([\s\S]*)\];/,
   `export const truths: Truth[] = [$1${newEntry}\n];`
 );
 
