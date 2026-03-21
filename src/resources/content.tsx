@@ -106,7 +106,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name} - Data-Driven Developer & Data Scientist | Freelance Portfolio`,
   description: `Portfolio of Audrey Senou, a freelance full-stack developer and data scientist specialized in building intelligent applications that transform data into strategic decision tools.`,
-  headline: <>Je transforme les données en outils stratégiques</>,
+  headline: <>I transform data into strategic tools</>,
   featured: {
     display: true,
     title: (
@@ -122,8 +122,8 @@ const home: Home = {
   },
   subline: (
     <>
-      Développeur & Data Analyst, je crée des solutions digitales capables d’analyser, prédire et optimiser.
-      J&apos;allie développement logiciel, analyse statistique et automatisation pour générer de la valeur.
+      As a Developer & Data Analyst, I build digital solutions capable of analyzing, predicting, and optimizing.
+      I combine software development, statistical analysis, and automation to generate value.
     </>
   ),
 };
@@ -134,7 +134,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About Audrey Senou – Data-Driven Developer & Data Scientist`,
-  description: `Découvrez le profil d’Audrey Senou : expert en développement web (Next.js), science des données (Python/ML) et automatisation intelligente. Basé en Afrique, orienté solutions business.`,
+  description: `Discover Audrey Senou's profile: expert in web development (Next.js), data science (Python/ML), and intelligent automation. Based in Africa, solution-oriented.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -151,10 +151,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Développeur web et mobile orienté solutions, avec une spécialisation en Data Science et analyse de données, 
-        je conçois des applications intelligentes capables d’exploiter les données pour générer de la valeur. 
-        J’allie développement logiciel, analyse statistique et automatisation pour créer des solutions performantes, 
-        utiles et orientées décision.
+        Solution-oriented web and mobile developer, with a specialization in Data Science and data analysis, 
+        I design intelligent applications capable of leveraging data to generate value. 
+        I combine software development, statistical analysis, and automation to create high-performance, 
+        useful, and decision-driven solutions.
       </>
     ),
   },
@@ -164,17 +164,17 @@ const about: About = {
 
   work: {
     display: true, // set to false to hide this section
-    title: "Expériences & Solutions",
+    title: "Experiences & Solutions",
     experiences: [
       {
         company: "Freelance",
-        timeframe: "2025 - Présent",
+        timeframe: "2025 - Present",
         role: "Data-Driven Developer & Project Manager",
         achievements: [
-          "Intelligence d'Affaires : Développement d'AllControl, un système de gestion de stocks avec analyse prédictive des besoins.",
-          "Automatisation Fiscale : Application de gestion des contribuables avec traitement automatisé et analyse de données, réduisant le travail manuel de 50%.",
-          "Analyse de Contenu : Conception de MiabeHub, plateforme avec analyse d'engagement utilisateur et optimisation de ligne éditoriale.",
-          "Aide à la Décision : Mise en œuvre de dashboards intelligents pour optimiser les processus métiers de clients variés.",
+          "Business Intelligence: Development of AllControl, a stock management system with predictive requisition features.",
+          "Tax Automation: Taxpayer management application with automated data processing and analysis, reducing manual work by 50%.",
+          "Content Analysis: Design of MiabeHub, a platform with user engagement analysis and editorial strategy optimization.",
+          "Decision Support: Implementation of intelligent dashboards to optimize business processes for various clients.",
         ],
         images: [
           {
@@ -190,8 +190,8 @@ const about: About = {
         timeframe: "2024 - 2025",
         role: "Web Developer & Data Analyst",
         achievements: [
-          "Agricultural Intelligence : Plateforme e-commerce avec analyse de catalogue et suivi des ventes pour optimiser les stocks.",
-          "Management Digital : Solution de gestion pour piscicultures avec tracking de croissance et prévisions de production.",
+          "Agricultural Intelligence: E-commerce platform with catalog analysis and sales tracking to optimize stocks.",
+          "Digital Management: Management solution for fish farming with growth tracking and production forecasts.",
         ],
         images: [],
       },
@@ -202,15 +202,15 @@ const about: About = {
 
   studies: {
     display: true, // set to false to hide this section
-    title: "Formation",
+    title: "Education",
     institutions: [
       {
         name: "ESGIS, Togo",
-        description: "Informatique de Gestion avec focus sur le développement logiciel et la gestion de base de données.",
+        description: "Computer Science with a focus on software development and database management.",
       },
       {
-        name: "Certifications Online",
-        description: "Data Science (Python), Machine Learning, DevOps et Management de Projets Digitaux.",
+        name: "Online Certifications",
+        description: "Data Science (Python), Machine Learning, DevOps, and Digital Project Management.",
       },
     ],
   },
@@ -218,11 +218,11 @@ const about: About = {
 
   technical: {
   display: true, // set to false to hide this section
-  title: "Compétences Techniques",
+  title: "Technical Skills",
   skills: [
     {
-      title: "💻 Développement Logiciel",
-      description: "Conception d'applications robustes et scalables avec les frameworks les plus performants du marché.",
+      title: "💻 Software Development",
+      description: "Building robust and scalable applications with the most performant frameworks on the market.",
       tags: [
         { name: "Next.js", icon: "nextjs" },
         { name: "TypeScript", icon: "typescript" },
@@ -241,14 +241,14 @@ const about: About = {
       ],
     },
     {
-      title: "📊 Data & Analyse",
-      description: "Transformation de données brutes en informations exploitables via l'analyse statistique et le Machine Learning.",
+      title: "📊 Data & Analysis",
+      description: "Transforming raw data into actionable insights via statistical analysis and Machine Learning.",
       tags: [
         { name: "Python (Pandas, NumPy)", icon: "python" },
         { name: "Machine Learning", icon: "tensorflow" },
-        { name: "Statistiques (Chi2, Cramer V)", icon: "python" },
-        { name: "Nettoyage de Données", icon: "python" },
-        { name: "Visualisation", icon: "python" },
+        { name: "Statistics (Chi2, Cramer V)", icon: "python" },
+        { name: "Data Cleaning", icon: "python" },
+        { name: "Visualization", icon: "python" },
       ],
       images: [
         {
@@ -260,13 +260,13 @@ const about: About = {
       ],
     },
     {
-      title: "⚙️ Automatisation & Systèmes",
-      description: "Optimisation de processus via des bots intelligents et des systèmes orientés décision stratégique.",
+      title: "⚙️ Automation & Systems",
+      description: "Process optimization via intelligent bots and strategic decision-oriented systems.",
       tags: [
-        { name: "Bots de Génération", icon: "automation" },
+        { name: "Generation Bots", icon: "automation" },
         { name: "Automation (CI/CD)", icon: "ci" },
         { name: "Docker", icon: "docker" },
-        { name: "Systèmes de Décision", icon: "automation" },
+        { name: "Decision Systems", icon: "automation" },
       ],
       images: [],
     },
@@ -275,7 +275,7 @@ const about: About = {
 
   beyond: {
     display: true,
-    title: "Au-delà du Code",
+    title: "Beyond Code",
     books: [
       { title: "48 Lois du pouvoir" },
       { title: "Plus malin que le diable" },
@@ -295,14 +295,14 @@ const blog: Blog = {
   path: "/blog",
   label: "Blog",
   title: `Data Tech & Strategy Blog – ${person.name}`,
-  description: `Découvrez les articles d’Audrey Senou sur le développement, la Data Science, l’automatisation et la gestion stratégique de projets digitaux.`,
+  description: `Read Audrey Senou's articles on development, Data Science, automation, and strategic digital project management.`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Portfolio Projets – ${person.name} | Data-Driven Solutions`,
-  description: `Explorez les réalisations d’Audrey Senou : applications web intelligentes, analyses de données avancées et systèmes automatisés à haute valeur ajoutée.`,
+  title: `Portfolio Projects – ${person.name} | Data-Driven Solutions`,
+  description: `Explore Audrey Senou's work: intelligent web applications, advanced data analysis, and high-value automated systems.`,
 };
 
 const gallery: Gallery = {
