@@ -16,9 +16,9 @@ export const TruthCard = ({ truth, index }: TruthCardProps) => {
     e.stopPropagation();
 
     const shareData = {
-      title: "Tech Truths",
+      title: "En vérité en vérité...",
       text: `"${truth.quote}" — ${truth.author}`,
-      url: `${window.location.origin}/truths#${truth.id}`,
+      url: `${window.location.origin}/truths/${truth.id}`,
     };
 
     if (navigator.share) {
