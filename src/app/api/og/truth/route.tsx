@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/a11y/noSvgWithoutTitle: <explanation> */
 import { ImageResponse } from "next/og";
 import { baseURL, person } from "@/resources";
 import { truths } from "@/resources/truths";

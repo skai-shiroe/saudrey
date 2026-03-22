@@ -32,7 +32,7 @@ export default async function TruthDetailPage({ params }: { params: Promise<{ id
   const truth = truths.find((t) => t.id === id);
 
   if (!truth) {
-    notFound();
+    return notFound();
   }
 
   return (

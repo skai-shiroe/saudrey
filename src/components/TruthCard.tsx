@@ -17,8 +17,8 @@ export const TruthCard = ({ truth, index }: TruthCardProps) => {
 
     const shareData = {
       title: "En vérité en vérité...",
-      text: `"${truth.quote}" — ${truth.author}`,
-      url: `${window.location.origin}/truths/${truth.id}`,
+      text: `"${truth.quote.length > 40 ? truth.quote.slice(0, 40).trimEnd() + "…" : truth.quote}" — ${truth.author}`,
+      url: `${window.location.origin}/truths#${truth.id}`,
     };
 
     if (navigator.share) {
@@ -41,20 +41,22 @@ export const TruthCard = ({ truth, index }: TruthCardProps) => {
   };
 
   return (
-    <RevealFx translateY="16" delay={index * 0.15}>
-      <Column
-        fillWidth
-        padding="32"
-        radius="xl"
-        background="neutral-alpha-weak"
-        border="neutral-alpha-weak"
-        gap="16"
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          backdropFilter: "blur(10px)",
-          transition: "transform 0.3s ease, border-color 0.3s ease",
-        }}
+    <>
+      {/* <div id={truth.id} style={{ scrollMarginTop: "100px" }} /> */}
+      <RevealFx translateY="16" delay={index * 0.15}>
+        <Column
+          fillWidth
+          padding="32"
+          radius="xl"
+          background="neutral-alpha-weak"
+          border="neutral-alpha-weak"
+          gap="16"
+          style={{
+            position: "relative",
+            overflow: "hidden",
+            backdropFilter: "blur(10px)",
+            transition: "transform 0.3s ease, border-color 0.3s ease",
+          }}
         onMouseEnter={(e: any) => {
             e.currentTarget.style.transform = "translateY(-5px)";
             e.currentTarget.style.borderColor = "var(--brand-alpha-strong)";
@@ -112,5 +114,6 @@ export const TruthCard = ({ truth, index }: TruthCardProps) => {
         />
       </Column>
     </RevealFx>
+    </>
   );
 };
