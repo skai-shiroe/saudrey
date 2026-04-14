@@ -165,7 +165,7 @@ const about: About = {
 
   work: {
     display: true, // set to false to hide this section
-    title: "Expériences en Ingénierie de Données & Développement SaaS",
+    title: "Expériences en Ingénierie",
     experiences: [
       {
         company: "Freelance",
