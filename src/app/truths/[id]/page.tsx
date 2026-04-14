@@ -1,7 +1,7 @@
-import { truths } from "@/resources/truths";
-import { Meta, Column, Text, RevealFx, Button } from "@once-ui-system/core";
+import type { Metadata } from "next";
 import { baseURL } from "@/resources";
-import { Metadata } from "next";
+import { truths } from "@/resources/truths";
+import { Button, Column, Meta, RevealFx, Schema, Text } from "@once-ui-system/core";
 import { TruthCard } from "@/components/TruthCard";
 
 export const dynamicParams = true;
@@ -21,10 +21,10 @@ export async function generateMetadata({
   if (!truth) return {};
 
   return Meta.generate({
-    title: `En vérité en vérité... — Vérité #${truth.id}`,
-    description: truth.quote,
+    title: `"${truth.quote}" — Audrey Senou`,
+    description: `Découvrez la vérité #${truth.id} de la série "En vérité en vérité..." par Audrey Senou.`,
     baseURL: baseURL,
-    image: `/api/og/truth?id=${truth.id}`,
+    image: `${baseURL}/api/og/truth?id=${truth.id}`,
     path: `/truths/${truth.id}`,
   });
 }
@@ -50,6 +50,14 @@ export default async function TruthDetailPage({
     >
       {truth ? (
         <Column fillWidth maxWidth="s" gap="32" horizontal="center">
+          <Schema
+            as="article"
+            baseURL={baseURL}
+            title={`"${truth.quote}" — Audrey Senou`}
+            description={truth.quote}
+            path={`/truths/${truth.id}`}
+            image={`${baseURL}/api/og/truth?id=${truth.id}`}
+          />
           <TruthCard truth={truth} index={0} />
           <RevealFx translateY="16" delay={0.4}>
             <Button
