@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useId } from "react";
 import { usePathname } from "next/navigation";
 import { routes, protectedRoutes } from "@/resources";
 import { Flex, Spinner, Button, Heading, Column, PasswordInput } from "@once-ui-system/core";
@@ -12,6 +12,7 @@ interface RouteGuardProps {
 
 const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
   const pathname = usePathname();
+  const passwordId = useId();
   const [isRouteEnabled, setIsRouteEnabled] = useState(false);
   const [isPasswordRequired, setIsPasswordRequired] = useState(false);
   const [password, setPassword] = useState("");
@@ -96,7 +97,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
         </Heading>
         <Column fillWidth gap="8" horizontal="center">
           <PasswordInput
-            id="password"
+            id={passwordId}
             label="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
