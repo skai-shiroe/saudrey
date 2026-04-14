@@ -1,6 +1,17 @@
 import { Column, Heading, Text, RevealFx } from "@once-ui-system/core";
-import { truths as truthsConfig } from "@/resources";
+import { truths as truthsConfig, baseURL } from "@/resources";
 import { TruthsList } from "@/components/TruthsList";
+import { Meta } from "@once-ui-system/core";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return Meta.generate({
+    title: truthsConfig.title,
+    description: truthsConfig.description,
+    baseURL: baseURL,
+    path: truthsConfig.path,
+  });
+}
 
 export default function TruthsPage() {
   return (
