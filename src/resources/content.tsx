@@ -222,7 +222,7 @@ const about: About = {
   title: "Expertise Technique & Pôles de Solutions",
   skills: [
     {
-      title: "💻 Software Development",
+      title: "Software Development",
       description: "Building robust and scalable applications with the most performant frameworks on the market.",
       tags: [
         { name: "Next.js", icon: "nextjs" },
@@ -242,7 +242,7 @@ const about: About = {
       ],
     },
     {
-      title: "📊 Data & Analysis",
+      title: "Data & Analysis",
       description: "Transforming raw data into actionable insights via statistical analysis and Machine Learning.",
       tags: [
         { name: "Python (Pandas, NumPy)", icon: "python" },
@@ -261,7 +261,7 @@ const about: About = {
       ],
     },
     {
-      title: "⚙️ Automation & Systems",
+      title: "Automation & Systems",
       description: "Process optimization via intelligent bots and strategic decision-oriented systems.",
       tags: [
         { name: "Generation Bots", icon: "automation" },
@@ -271,6 +271,24 @@ const about: About = {
       ],
       images: [],
     },
+    {
+  title: "Soft Skills & Leadership",
+  description:
+    "Ability to communicate complex ideas clearly while maintaining consistent operational excellence and strong team coordination.",
+  tags: [
+    { name: "Public Speaking", icon: "person" },
+    { name: "Discipline", icon: "check" },
+    { name: "Critical Thinking", icon: "lightbulb" },
+    { name: "Leadership", icon: "people" },
+    { name: "Problem Solving", icon: "construct" },
+    { name: "Team Management", icon: "people-circle" },
+    { name: "Decision Making", icon: "git-branch" },
+    { name: "Adaptability", icon: "refresh" },
+    { name: "Time Management", icon: "time" },
+    { name: "Conflict Resolution", icon: "shield-checkmark" },
+  ],
+  images: [],
+},
   ],
   },
 
