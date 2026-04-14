@@ -7,9 +7,10 @@ import { ProjectCard } from "@/components";
 interface ProjectListProps {
   allProjects: any[];
   range?: [number, number?];
+  columns?: number;
 }
 
-export function ProjectList({ allProjects, range }: ProjectListProps) {
+export function ProjectList({ allProjects, range, columns = 2 }: ProjectListProps) {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filters = ["All", "Development", "Data", "Automation"];
@@ -43,7 +44,7 @@ export function ProjectList({ allProjects, range }: ProjectListProps) {
           ))}
         </Row>
       )}
-      <Grid columns="2" s={{ columns: 1 }} gap="l">
+      <Grid columns={columns.toString() as any} s={{ columns: 1 }} gap="l">
         {displayedProjects.map((post: any, index: number) => (
           <RevealFx key={post.slug} translateY="16" delay={index * 0.1}>
             <ProjectCard
