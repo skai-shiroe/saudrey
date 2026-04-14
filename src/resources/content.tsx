@@ -16,7 +16,7 @@ const person: Person = {
   firstName: "Audrey",
   lastName: "Senou",
   name: "Audrey Senou",
-  role: "Web & Mobile Development | Data Science & Analytics | Digital Solutions Architect",
+  role: "Architecte Solutions Digitales | Data Scientist & Expert Automatisation Intelligent",
   avatar: "/images/skai.jpg",
   email: "senou.audrey.dev@gmail.com",
   location: "Africa/Lome",
@@ -105,8 +105,8 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.png",
   label: "Home",
-  title: `${person.name} - Data-Driven Developer & Data Scientist | Freelance Portfolio`,
-  description: `Portfolio of Audrey Senou, a freelance full-stack developer and data scientist specialized in building intelligent applications that transform data into strategic decision tools.`,
+  title: `${person.name} | Expert Solutions Data-Driven & Architecte SaaS Next.js`,
+  description: `Optimisez votre business avec Audrey Senou : Expert en Pipelines de Données, modèles de Machine Learning et développement SaaS Next.js haute performance.`,
   headline: <>I transform data into strategic tools</>,
   featured: {
     display: true,
@@ -134,8 +134,8 @@ const home: Home = {
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About Audrey Senou – Data-Driven Developer & Data Scientist`,
-  description: `Discover Audrey Senou's profile: expert in web development (Next.js), data science (Python/ML), and intelligent automation. Based in Africa, solution-oriented.`,
+  title: `À propos d'Audrey Senou – Expert Data Science & Développement SaaS`,
+  description: `Découvrez le profil d'Audrey Senou : expert en développement Next.js, Data Science (Python/ML) et automatisation intelligente. Maîtrisez vos données.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -165,7 +165,7 @@ const about: About = {
 
   work: {
     display: true, // set to false to hide this section
-    title: "Experiences & Solutions",
+    title: "Expériences en Ingénierie de Données & Développement SaaS",
     experiences: [
       {
         company: "Freelance",
@@ -219,7 +219,7 @@ const about: About = {
 
   technical: {
   display: true, // set to false to hide this section
-  title: "Technical Skills",
+  title: "Expertise Technique & Pôles de Solutions",
   skills: [
     {
       title: "💻 Software Development",
@@ -295,22 +295,22 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: `Data Tech & Strategy Blog – ${person.name}`,
-  description: `Read Audrey Senou's articles on development, Data Science, automation, and strategic digital project management.`,
+  title: `Blog Data Tech & Stratégie Digitale – ${person.name}`,
+  description: `Conseils et stratégies sur le développement SaaS, la Data Science, l'automatisation et la gestion de projets digitaux par Audrey Senou.`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Portfolio Projects – ${person.name} | Data-Driven Solutions`,
-  description: `Explore Audrey Senou's work: intelligent web applications, advanced data analysis, and high-value automated systems.`,
+  title: `Portfolio Projets – ${person.name} | Solutions Data-Driven & SaaS`,
+  description: `Explorez les réalisations d'Audrey Senou : applications web intelligentes, analyses de données avancées et systèmes automatisés à haute valeur ajoutée.`,
 };
 
 const truths: Truths = {
   path: "/truths",
   label: "Truths",
-  title: `Tech Truths & Dev Gospel – ${person.name}`,
-  description: `Discover the "En vérité en vérité..." series: a collection of tech insights, dev humor, and software engineering wisdom by ${person.name}.`,
+  title: `Vérités Tech & Évangile Dev – ${person.name}`,
+  description: `Découvrez la série "En vérité en vérité..." : une collection d'insights techniques, d'humour dev et de sagesse en ingénierie logicielle par ${person.name}.`,
 };
 
 const gallery: Gallery = {

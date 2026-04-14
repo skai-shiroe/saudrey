@@ -28,7 +28,7 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column maxWidth="l" gap="xl" paddingY="12" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -100,7 +100,7 @@ export default function Home() {
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects include={["allcontrol", "lapepiniereskm","miabehub"]} range={[1, 1]} />
+        <Projects include={["andregroup", "allcontrol", "lapepiniereskm","miabehub"]} range={[1, 1]} columns={1} />
       </RevealFx>
       <RevealFx translateY="16" delay={0.8} fillWidth>
         {routes["/blog"] && (
@@ -125,7 +125,7 @@ export default function Home() {
         )}
       </RevealFx>
       <RevealFx translateY="16" delay={1}>
-        <Projects include={["allcontrol", "lapepiniereskm","miabehub"]} range={[2]} />
+        <Projects include={["andregroup", "allcontrol", "lapepiniereskm","miabehub"]} range={[2, 4]} columns={2} />
       </RevealFx>
       <RevealFx translateY="16" delay={1.2}>
         <Mailchimp />

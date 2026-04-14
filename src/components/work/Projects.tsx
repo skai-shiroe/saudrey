@@ -5,9 +5,10 @@ interface ProjectsProps {
   range?: [number, number?];
   exclude?: string[];
   include?: string[];
+  columns?: number;
 }
 
-export function Projects({ range, exclude, include }: ProjectsProps) {
+export function Projects({ range, exclude, include, columns }: ProjectsProps) {
   let allProjects = getPosts(["src", "app", "work", "projects"]);
 
   // Include only specified slugs (if provided)
@@ -20,5 +21,5 @@ export function Projects({ range, exclude, include }: ProjectsProps) {
     allProjects = allProjects.filter((post) => !exclude.includes(post.slug));
   }
 
-  return <ProjectList allProjects={allProjects} range={range} />;
+  return <ProjectList allProjects={allProjects} range={range} columns={columns} />;
 }
