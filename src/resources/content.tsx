@@ -236,8 +236,8 @@ const about: About = {
       ],
       images: [
         {
-          src: "/images/projects/skm/skm.png",
-          alt: "Web development project",
+          src: "/images/projects/lamaindedieu/1.png",
+          alt: "Projet SCOOPS LA MAIN DE DIEU",
           width: 16,
           height: 9,
         },
@@ -255,8 +255,8 @@ const about: About = {
       ],
       images: [
         {
-          src: "/images/projects/think/think.png",
-          alt: "UI/UX project",
+          src: "/images/projects/allcontrol/allcontrol.png",
+          alt: "Système AllControl",
           width: 16,
           height: 9,
         },
@@ -271,7 +271,14 @@ const about: About = {
         { name: "Docker", icon: "docker" },
         { name: "Decision Systems", icon: "automation" },
       ],
-      images: [],
+      images: [
+        {
+          src: "/images/projects/andregroup/1.png",
+          alt: "Projet ANDRE GROUP",
+          width: 16,
+          height: 9,
+        },
+      ],
     },
     {
   title: "Soft Skills & Leadership",

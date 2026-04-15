@@ -15,6 +15,8 @@ import { home, about, person, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import { TruthCard } from "@/components/TruthCard";
+import { truths } from "@/resources/truths";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -128,6 +130,24 @@ export default function Home() {
         <Projects include={["lamaindedieu", "andregroup", "allcontrol", "lapepiniereskm"]} range={[2, 4]} columns={2} />
       </RevealFx>
       <RevealFx translateY="16" delay={1.2}>
+        <Column fillWidth gap="32" horizontal="center" marginTop="40">
+          <Column horizontal="center" gap="16">
+            <Badge background="brand-alpha-weak" onBackground="brand-strong">
+              Série : En vérité en vérité...
+            </Badge>
+            <Heading as="h2" variant="display-strong-xs" align="center">
+              Dernier Insight Technique
+            </Heading>
+          </Column>
+          <Column maxWidth="s" fillWidth>
+            <TruthCard truth={truths[0]} index={0} />
+          </Column>
+          <Button href="/truths" variant="secondary" size="s">
+            Découvrir toutes les vérités
+          </Button>
+        </Column>
+      </RevealFx>
+      <RevealFx translateY="16" delay={1.4}>
         <Mailchimp />
       </RevealFx>
     </Column>
