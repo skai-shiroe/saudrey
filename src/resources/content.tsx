@@ -172,6 +172,8 @@ const about: About = {
         timeframe: "2025 - Present",
         role: "Data-Driven Developer & Project Manager",
         achievements: [
+          "Industrial Services: Professional showcase site for STE GOD IS GOOD - ANDRE GROUP, specializing in Import-Export and industrial services.",
+          "Sustainable Agriculture: Digital platform for SCOOPS LA MAIN DE DIEU, promoting sustainable agriculture and equitable trade in Togo.",
           "Business Intelligence: Development of AllControl, a stock management system with predictive requisition features.",
           "Tax Automation: Taxpayer management application with automated data processing and analysis, reducing manual work by 50%.",
           "Content Analysis: Design of MiabeHub, a platform with user engagement analysis and editorial strategy optimization.",
