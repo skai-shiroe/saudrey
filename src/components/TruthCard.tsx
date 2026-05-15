@@ -16,7 +16,7 @@ export const TruthCard = ({ truth, index }: TruthCardProps) => {
     e.stopPropagation();
 
     const shareData = {
-      title: "En vérité en vérité...",
+      title: "In truth, in truth...",
       text: `"${truth.quote.length > 40 ? truth.quote.slice(0, 40).trimEnd() + "…" : truth.quote}" — ${truth.author}`,
       url: `${window.location.origin}/truths/${truth.id}`,
     };

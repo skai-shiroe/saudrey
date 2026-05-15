@@ -22,7 +22,7 @@ export async function generateMetadata({
 
   return Meta.generate({
     title: `"${truth.quote}" — Audrey Senou`,
-    description: `Découvrez la vérité #${truth.id} de la série "En vérité en vérité..." par Audrey Senou.`,
+    description: `Discover truth #${truth.id} from the "In truth, in truth..." series by Audrey Senou.`,
     baseURL: baseURL,
     image: `${baseURL}/api/og/truth?id=${truth.id}`,
     path: `/truths/${truth.id}`,
@@ -65,7 +65,7 @@ export default async function TruthDetailPage({
               variant="secondary"
               size="s"
               prefixIcon="chevronLeft"
-              label="Voir toutes les vérités"
+               label="View all truths"
             />
           </RevealFx>
         </Column>
@@ -73,14 +73,14 @@ export default async function TruthDetailPage({
         <Column gap="16" horizontal="center">
           <RevealFx translateY="16">
             <Text variant="body-default-s" onBackground="neutral-weak">
-              Vérité non trouvée.
+              Truth not found.
             </Text>
           </RevealFx>
           <Button
             href="/truths"
             variant="secondary"
             size="s"
-            label="Retourner à la liste"
+            label="Back to list"
           />
         </Column>
       )}

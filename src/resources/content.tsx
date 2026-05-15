@@ -16,7 +16,7 @@ const person: Person = {
   firstName: "Audrey",
   lastName: "Senou",
   name: "Audrey Senou",
-  role: "Architecte Solutions Digitales | Data Scientist & Expert Automatisation Intelligent",
+  role: "Digital Solutions Engineer | Product Builder & System Architect",
   avatar: "/images/skai.jpg",
   email: "senou.audrey.dev@gmail.com",
   location: "Africa/Lome",
@@ -25,11 +25,11 @@ const person: Person = {
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}&apos;s Newsletter</>,
+  title: <>Subscribe to {person.firstName}'s newsletter</>,
   description: (
     <>
-      Join my weekly newsletter where I share strategies on data science, high-performance web development, 
-      and AI automation—practical insights to transform data into strategic tools.
+      Join my weekly newsletter where I share strategies in data science, high-performance web development,
+      and AI automation — practical insights to transform data into strategic tools.
     </>
   ),
 };
@@ -77,8 +77,6 @@ const mailchimp = {
 
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
   {
     name: "GitHub",
     icon: "github",
@@ -105,9 +103,9 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.png",
   label: "Home",
-  title: `${person.name} | Expert Solutions Data-Driven & Architecte SaaS Next.js`,
-  description: `Optimisez votre business avec Audrey Senou : Expert en Pipelines de Données, modèles de Machine Learning et développement SaaS Next.js haute performance.`,
-  headline: <>I transform data into strategic tools</>,
+  title: `${person.name} | Digital Solutions Engineer & Product Builder`,
+  description: `Digital systems architect, Product Builder, and data expert. I build SaaS solutions, business applications, and automation systems that transform businesses.`,
+  headline: <>I build digital systems that simplify and automate businesses.</>,
   featured: {
     display: true,
     title: (
@@ -115,7 +113,7 @@ const home: Home = {
         <strong className="ml-4">A. Senou</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Featured project
         </Text>
       </Row>
     ),
@@ -123,7 +121,7 @@ const home: Home = {
   },
   subline: (
     <>
-      As a Developer & Data Analyst, I build digital solutions capable of analyzing, predicting, and optimizing.
+      Developer & Data Analyst, I build digital solutions capable of analyzing, predicting, and optimizing.
       I combine software development, statistical analysis, and automation to generate value.
     </>
   ),
@@ -134,8 +132,8 @@ const home: Home = {
 const about: About = {
   path: "/about",
   label: "About",
-  title: `À propos d'Audrey Senou – Expert Data Science & Développement SaaS`,
-  description: `Découvrez le profil d'Audrey Senou : expert en développement Next.js, Data Science (Python/ML) et automatisation intelligente. Maîtrisez vos données.`,
+  title: `About Audrey Senou – Data Science & SaaS Development Expert`,
+  description: `Discover the profile of Audrey Senou: expert in Next.js development, Data Science (Python/ML) and intelligent automation. Master your data.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -152,10 +150,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Solution-oriented web and mobile developer, with a specialization in Data Science and data analysis, 
-        I design intelligent applications capable of leveraging data to generate value. 
-        I combine software development, statistical analysis, and automation to create high-performance, 
-        useful, and decision-driven solutions.
+        Solution-oriented web and mobile developer, specialized in Data Science and data analysis,
+        I design intelligent applications capable of leveraging data to generate value.
+        I combine software development, statistical analysis, and automation to create
+        high-performance, useful solutions oriented toward decision-making.
       </>
     ),
   },
@@ -164,18 +162,18 @@ const about: About = {
 
 
   work: {
-    display: true, // set to false to hide this section
-    title: "Expériences en Ingénierie",
+    display: true,
+    title: "Engineering Experience",
     experiences: [
       {
         company: "Freelance",
         timeframe: "2025 - Present",
-        role: "Data-Driven Developer & Project Manager",
+        role: "Data-Driven Developer & Project Lead",
         achievements: [
-          "Industrial Services: Professional showcase site for STE GOD IS GOOD - ANDRE GROUP, specializing in Import-Export and industrial services.",
-          "Sustainable Agriculture: Digital platform for SCOOPS LA MAIN DE DIEU, promoting sustainable agriculture and equitable trade in Togo.",
-          "Business Intelligence: Development of AllControl, a stock management system with predictive requisition features.",
-          "Tax Automation: Taxpayer management application with automated data processing and analysis, reducing manual work by 50%.",
+          "Industrial Services: Professional website for STE GOD IS GOOD - ANDRE GROUP, specialized in Import-Export and industrial services.",
+          "Sustainable Agriculture: Digital platform for SCOOPS LA MAIN DE DIEU, promoting sustainable agriculture and fair trade in Togo.",
+          "Business Intelligence: Development of AllControl, an inventory management system with predictive replenishment features.",
+          "Tax Automation: Taxpayer management application with automated data processing, reducing manual work by 50%.",
           "Content Analysis: Design of MiabeHub, a platform with user engagement analysis and editorial strategy optimization.",
           "Decision Support: Implementation of intelligent dashboards to optimize business processes for various clients.",
         ],
@@ -193,7 +191,7 @@ const about: About = {
         timeframe: "2024 - 2025",
         role: "Web Developer & Data Analyst",
         achievements: [
-          "Agricultural Intelligence: E-commerce platform with catalog analysis and sales tracking to optimize stocks.",
+          "Agricultural Intelligence: E-commerce platform with catalog analysis and sales tracking to optimize inventory.",
           "Digital Management: Management solution for fish farming with growth tracking and production forecasts.",
         ],
         images: [],
@@ -204,24 +202,24 @@ const about: About = {
 
 
   studies: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Education",
     institutions: [
       {
         name: "ESGIS, Togo",
-        description: "Computer Science with a focus on software development and database management.",
+        description: "Computer Science with specialization in software development and database management.",
       },
       {
         name: "Online Certifications",
-        description: "Data Science (Python), Machine Learning, DevOps, and Digital Project Management.",
+        description: "Data Science (Python), Machine Learning, DevOps and Digital Project Management.",
       },
     ],
   },
 
 
   technical: {
-  display: true, // set to false to hide this section
-  title: "Expertise Technique & Pôles de Solutions",
+  display: true,
+  title: "Technical Expertise & Solution Areas",
   skills: [
     {
       title: "Software Development",
@@ -237,26 +235,26 @@ const about: About = {
       images: [
         {
           src: "/images/projects/lamaindedieu/1.png",
-          alt: "Projet SCOOPS LA MAIN DE DIEU",
+          alt: "SCOOPS LA MAIN DE DIEU Project",
           width: 16,
           height: 9,
         },
       ],
     },
     {
-      title: "Data & Analysis",
-      description: "Transforming raw data into actionable insights via statistical analysis and Machine Learning.",
+      title: "Data & Analytics",
+      description: "Transforming raw data into actionable insights through statistical analysis and Machine Learning.",
       tags: [
         { name: "Python (Pandas, NumPy)", icon: "python" },
         { name: "Machine Learning", icon: "tensorflow" },
-        { name: "Statistics (Chi2, Cramer V)", icon: "python" },
+        { name: "Statistics (Chi2, Cramer's V)", icon: "python" },
         { name: "Data Cleaning", icon: "python" },
         { name: "Visualization", icon: "python" },
       ],
       images: [
         {
           src: "/images/projects/allcontrol/allcontrol.png",
-          alt: "Système AllControl",
+          alt: "AllControl System",
           width: 16,
           height: 9,
         },
@@ -264,7 +262,7 @@ const about: About = {
     },
     {
       title: "Automation & Systems",
-      description: "Process optimization via intelligent bots and strategic decision-oriented systems.",
+      description: "Process optimization through intelligent bots and strategic decision-oriented systems.",
       tags: [
         { name: "Generation Bots", icon: "automation" },
         { name: "Automation (CI/CD)", icon: "ci" },
@@ -274,16 +272,29 @@ const about: About = {
       images: [
         {
           src: "/images/projects/andregroup/1.png",
-          alt: "Projet ANDRE GROUP",
+          alt: "ANDRE GROUP Project",
           width: 16,
           height: 9,
         },
       ],
     },
     {
+      title: "IT Project Management",
+      description:
+        "End-to-end IT project management: scoping, planning, team coordination, risk management, and on-time delivery.",
+      tags: [
+        { name: "Agile (Scrum/Kanban)", icon: "people" },
+        { name: "Team Coordination", icon: "people-circle" },
+        { name: "Risk Management", icon: "shield-checkmark" },
+        { name: "Budget & Planning", icon: "construct" },
+        { name: "Jira / Notion", icon: "check" },
+      ],
+      images: [],
+    },
+    {
   title: "Soft Skills & Leadership",
   description:
-    "Ability to communicate complex ideas clearly while maintaining consistent operational excellence and strong team coordination.",
+    "Ability to communicate complex ideas clearly while maintaining constant operational excellence and strong team coordination.",
   tags: [
     { name: "Public Speaking", icon: "person" },
     { name: "Discipline", icon: "check" },
@@ -303,18 +314,18 @@ const about: About = {
 
   beyond: {
     display: true,
-    title: "Beyond Code",
+    title: "Beyond the Code",
     books: [
-      { title: "48 Lois du pouvoir" },
-      { title: "Plus malin que le diable" },
-      { title: "Réfléchissez et devenez riche" },
-      { title: "L'obstacle est le chemin" },
-      { title: "Ego is the Enemy" },
-      { title: "Comment convaincre en moins de 2 minutes" },
-      { title: "L'art de la guerre" },
+      { title: "48 Laws of Power" },
+      { title: "The Wisdom of the Devil" },
+      { title: "Think and Grow Rich" },
+      { title: "The Obstacle Is the Way" },
+      { title: "Ego Is the Enemy" },
+      { title: "How to Convince in Under 2 Minutes" },
+      { title: "The Art of War" },
       { title: "The Code Book" },
     ],
-    games: ["Échecs", "Dame", "Uno", "Moulin", "Go", "Undercover"],
+    games: ["Chess", "Checkers", "Uno", "Nine Men's Morris", "Go", "Undercover"],
   },
 };
 
@@ -322,31 +333,29 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: `Blog Data Tech & Stratégie Digitale – ${person.name}`,
-  description: `Conseils et stratégies sur le développement SaaS, la Data Science, l'automatisation et la gestion de projets digitaux par Audrey Senou.`,
+  title: `Data Tech & Digital Strategy Blog – ${person.name}`,
+  description: `Tips and strategies on SaaS development, Data Science, automation, and digital project management by Audrey Senou.`,
 };
 
 const work: Work = {
   path: "/work",
-  label: "Work",
-  title: `Portfolio Projets – ${person.name} | Solutions Data-Driven & SaaS`,
-  description: `Explorez les réalisations d'Audrey Senou : applications web intelligentes, analyses de données avancées et systèmes automatisés à haute valeur ajoutée.`,
+  label: "Projects",
+  title: `Portfolio Projects – ${person.name} | Data-Driven & SaaS Solutions`,
+  description: `Explore Audrey Senou's achievements: intelligent web applications, advanced data analytics, and high-value automated systems.`,
 };
 
 const truths: Truths = {
   path: "/truths",
   label: "Truths",
-  title: `Vérités Tech & Évangile Dev – ${person.name}`,
-  description: `Découvrez la série "En vérité en vérité..." : une collection d'insights techniques, d'humour dev et de sagesse en ingénierie logicielle par ${person.name}.`,
+  title: `Tech Truths & Dev Gospel – ${person.name}`,
+  description: `Discover the "In truth, in truth..." series: a collection of technical insights, dev humor, and software engineering wisdom by ${person.name}.`,
 };
 
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
   title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
+  description: `A collection of photos by ${person.name}`,
   images: [
     {
       src: "/images/hobbies/books/48lois.jpg",

@@ -37,31 +37,54 @@ const protectedRoutes: ProtectedRoutesConfig = {
   "/work/lapepiniereskm": false,
 };
 
-// Import and set font for each variant
-import { Geist } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
+// LOCAL FONTS — Geist via next/font/local (no remote fetch)
+import localFont from "next/font/local";
 
-const heading = Geist({
+const heading = localFont({
+  src: [
+    {
+      path: "../../public/fonts/GeistVF.woff2",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
   variable: "--font-heading",
-  subsets: ["latin"],
   display: "swap",
 });
 
-const body = Geist({
+const body = localFont({
+  src: [
+    {
+      path: "../../public/fonts/GeistVF.woff2",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
   variable: "--font-body",
-  subsets: ["latin"],
   display: "swap",
 });
 
-const label = Geist({
+const label = localFont({
+  src: [
+    {
+      path: "../../public/fonts/GeistVF.woff2",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
   variable: "--font-label",
-  subsets: ["latin"],
   display: "swap",
 });
 
-const code = Geist_Mono({
+const code = localFont({
+  src: [
+    {
+      path: "../../public/fonts/GeistMonoVF.woff2",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
   variable: "--font-code",
-  subsets: ["latin"],
   display: "swap",
 });
 
@@ -72,24 +95,24 @@ const fonts: FontsConfig = {
   code: code,
 };
 
-// default customization applied to the HTML in the main layout.tsx
+// PREMIUM DESIGN SYSTEM — Dark mode, Indigo/Violet palette
 const style: StyleConfig = {
-  theme: "system", // dark | light | system
-  neutral: "gray", // sand | gray | slate | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  solid: "contrast", // color | contrast
-  solidStyle: "flat", // flat | plastic
-  border: "playful", // rounded | playful | conservative
-  surface: "translucent", // filled | translucent
-  transition: "all", // all | micro | macro
-  scaling: "100", // 90 | 95 | 100 | 105 | 110
+  theme: "dark",
+  neutral: "slate",
+  brand: "indigo",
+  accent: "violet",
+  solid: "contrast",
+  solidStyle: "flat",
+  border: "playful",
+  surface: "translucent",
+  transition: "all",
+  scaling: "100",
 };
 
 const dataStyle: DataStyleConfig = {
-  variant: "gradient", // flat | gradient | outline
-  mode: "categorical", // categorical | divergent | sequential
-  height: 24, // default chart height
+  variant: "gradient",
+  mode: "categorical",
+  height: 24,
   axis: {
     stroke: "var(--neutral-alpha-weak)",
   },
@@ -108,25 +131,25 @@ const effects: EffectsConfig = {
     radius: 300,
   },
   gradient: {
-    display: false,
-    opacity: 100,
+    display: true,
+    opacity: 30,
     x: 50,
     y: 60,
     width: 100,
     height: 50,
-    tilt: 0,
+    tilt: -10,
     colorStart: "accent-background-strong",
     colorEnd: "page-background",
   },
   dots: {
     display: true,
-    opacity: 60,
+    opacity: 40,
     size: "2",
     color: "brand-background-strong",
   },
   grid: {
     display: true,
-    opacity: 10,
+    opacity: 8,
     color: "neutral-alpha-medium",
     width: "0.25rem",
     height: "0.25rem",

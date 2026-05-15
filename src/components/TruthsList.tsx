@@ -9,10 +9,10 @@ export const TruthsList = () => {
     <Column fillWidth gap="40" marginTop="80">
       <Column gap="8">
         <Heading as="h2" variant="display-strong-xs">
-          Les Vérités du Dev
+          Dev Truths
         </Heading>
         <Text variant="body-default-s" onBackground="neutral-weak">
-          Sagesse tech et réflexions informatiques.
+          Tech wisdom and IT reflections.
         </Text>
       </Column>
       <Grid columns="2" s={{ columns: 1 }} gap="l">

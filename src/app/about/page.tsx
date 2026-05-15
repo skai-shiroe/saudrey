@@ -55,12 +55,12 @@ export default function About() {
       items: about.technical.skills.map((skill) => skill.title),
     },
     {
-      title: "Books",
+                    title: "Books",
       display: about.beyond.display,
       items: [],
     },
     {
-      title: "Games",
+                    title: "Games",
       display: about.beyond.display,
       items: [],
     },
@@ -368,7 +368,7 @@ export default function About() {
                     Books
                   </Heading>
                   <Text variant="body-default-m" onBackground="neutral-weak">
-                    Some of the books that have influenced my thinking and personal development.
+                    A few books that have influenced my thinking and personal development.
                   </Text>
                   <Row wrap gap="8" paddingTop="8">
                     {about.beyond.books.map((book, index) => (

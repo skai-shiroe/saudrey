@@ -1,137 +1,173 @@
 import { notFound } from "next/navigation";
-import { getPosts } from "@/utils/utils";
 import {
   Meta,
   Schema,
-  AvatarGroup,
   Button,
   Column,
-  Flex,
   Heading,
-  Media,
   Text,
-  SmartLink,
   Row,
-  Avatar,
   Line,
+  RevealFx,
+  Grid,
 } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
-import { ScrollToHash, CustomMDX } from "@/components";
+import { projects, type Project } from "@/data";
 import { Metadata } from "next";
-import { Projects } from "@/components/work/Projects";
+import { ProjectCard } from "@/components/ProjectCard";
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    slug: project.slug,
   }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
 
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  let post = posts.find((post) => post.slug === slugPath);
-
-  if (!post) return {};
+  if (!project) return {};
 
   return Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary,
+    title: `${project.title} — ${project.tagline}`,
+    description: project.problem,
     baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `${work.path}/${post.slug}`,
+    image: project.images[0]?.src || `/api/og/generate?title=${encodeURIComponent(project.title)}`,
+    path: `${work.path}/${project.slug}`,
   });
 }
 
-export default async function Project({
+export default async function ProjectPage({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
 
-  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
-
-  if (!post) {
+  if (!project) {
     notFound();
   }
 
-  const avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || [];
+  const relatedProjects = projects
+    .filter((p) => p.slug !== slug)
+    .slice(0, 2);
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
+    <Column as="section" maxWidth="l" horizontal="center" gap="l" paddingTop="80" paddingX="l">
       <Schema
         as="blogPosting"
         baseURL={baseURL}
-        path={`${work.path}/${post.slug}`}
-        title={post.metadata.title}
-        description={post.metadata.summary}
-        datePublished={post.metadata.publishedAt}
-        dateModified={post.metadata.publishedAt}
-        image={
-          post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
-        }
+        path={`${work.path}/${project.slug}`}
+        title={project.title}
+        description={project.problem}
+        image={project.images[0]?.src || `/api/og/generate?title=${encodeURIComponent(project.title)}`}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column maxWidth="s" gap="16" horizontal="center" align="center">
-        <SmartLink href="/work">
-          <Text variant="label-strong-m">Projects</Text>
-        </SmartLink>
-        <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-          {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
+
+      {/* Header */}
+      <Column maxWidth="s" gap="16" horizontal="center" align="center" paddingBottom="40">
+        <span className="badge-premium">{project.category}</span>
+        <Heading as="h1" variant="display-strong-l" align="center" wrap="balance">
+          {project.title}
+        </Heading>
+        <Text variant="heading-default-l" onBackground="brand-weak" align="center" wrap="balance">
+          {project.tagline}
         </Text>
-        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
       </Column>
-      <Row marginBottom="32" horizontal="center">
-        <Row gap="16" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="s" />}
-          <Text variant="label-default-m" onBackground="brand-weak">
-            {post.metadata.team?.map((member, idx) => (
-              <span key={idx}>
-                {idx > 0 && (
-                  <Text as="span" onBackground="neutral-weak">
-                    ,{" "}
+
+      {/* Main Content */}
+      <Column maxWidth="m" fillWidth gap="xl">
+        {/* Problem */}
+        <Column className="card-premium" style={{ padding: "40px" }} gap="16">
+          <Row gap="8" vertical="center">
+            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#EF4444" }} />
+            <Text variant="label-default-s" style={{ color: "#EF4444", fontWeight: 600 }}>
+              PROBLEM
+            </Text>
+          </Row>
+          <Text variant="body-default-l" onBackground="neutral-weak">
+            {project.problem}
+          </Text>
+        </Column>
+
+        {/* Solution */}
+        <Column className="card-premium" style={{ padding: "40px" }} gap="16">
+          <Row gap="8" vertical="center">
+            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10B981" }} />
+            <Text variant="label-default-s" style={{ color: "#10B981", fontWeight: 600 }}>
+              SOLUTION
+            </Text>
+          </Row>
+          <Text variant="body-default-l" onBackground="neutral-weak">
+            {project.solution}
+          </Text>
+        </Column>
+
+        {/* Impact */}
+        <Column className="card-premium" style={{ padding: "40px" }} gap="16">
+          <Row gap="8" vertical="center">
+            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#6366F1" }} />
+            <Text variant="label-default-s" style={{ color: "#6366F1", fontWeight: 600 }}>
+              IMPACT
+            </Text>
+          </Row>
+          <Text variant="body-default-l" onBackground="neutral-weak">
+            {project.impact}
+          </Text>
+          {project.metrics && (
+            <Row gap="40" paddingTop="16" wrap>
+              {project.metrics.map((metric) => (
+                <Column key={metric.label} gap="4">
+                  <Text variant="display-strong-xs" className="gradient-text-subtle">
+                    {metric.value}
                   </Text>
-                )}
-                <SmartLink href={member.linkedIn}>{member.name}</SmartLink>
+                  <Text variant="body-default-s" onBackground="neutral-weak">
+                    {metric.label}
+                  </Text>
+                </Column>
+              ))}
+            </Row>
+          )}
+        </Column>
+
+        {/* Tech Stack */}
+        <Column className="card-premium" style={{ padding: "40px" }} gap="16">
+          <Text variant="label-default-s" onBackground="brand-weak" style={{ fontWeight: 600 }}>
+            TECHNOLOGIES USED
+          </Text>
+          <Row gap="8" wrap>
+            {project.tech.map((tech) => (
+              <span key={tech} className="tech-badge" style={{ fontSize: "0.8rem", padding: "6px 14px" }}>
+                {tech}
               </span>
             ))}
-          </Text>
-        </Row>
-      </Row>
-      {post.metadata.images.length > 0 && (
-        <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
+          </Row>
+        </Column>
+      </Column>
+
+      {/* Related Projects */}
+      {relatedProjects.length > 0 && (
+        <Column fillWidth gap="xl" horizontal="center" style={{ paddingTop: "60px", paddingBottom: "40px" }}>
+          <Line maxWidth="40" />
+          <Heading as="h2" variant="heading-strong-xl" align="center">
+            Other projects
+          </Heading>
+          <Grid columns="2" s={{ columns: 1 }} gap="l">
+            {relatedProjects.map((rp) => (
+              <ProjectCard key={rp.slug} project={rp} />
+            ))}
+          </Grid>
+        </Column>
       )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
-        <CustomMDX source={post.content} />
-      </Column>
-      <Column fillWidth gap="40" horizontal="center" marginTop="40">
-        <Line maxWidth="40" />
-        <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-          Related projects
-        </Heading>
-        <Projects exclude={[post.slug]} range={[2]} />
-      </Column>
-      <ScrollToHash />
     </Column>
   );
 }

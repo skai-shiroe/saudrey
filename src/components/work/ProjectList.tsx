@@ -17,7 +17,7 @@ export function ProjectList({ allProjects, range, columns = 2 }: ProjectListProp
 
   const filteredProjects = allProjects.filter((post: any) => {
     if (activeFilter === "All") return true;
-    return (post.metadata as any).category === activeFilter;
+    return activeFilter && (post.metadata as any).category === activeFilter;
   });
 
   const sortedProjects = filteredProjects.sort((a: any, b: any) => {
@@ -48,14 +48,18 @@ export function ProjectList({ allProjects, range, columns = 2 }: ProjectListProp
         {displayedProjects.map((post: any, index: number) => (
           <RevealFx key={post.slug} translateY="16" delay={index * 0.1}>
             <ProjectCard
-              priority={index < 2}
-              href={`/work/${post.slug}`}
-              images={post.metadata.images}
-              title={post.metadata.title}
-              description={post.metadata.summary}
-              content={post.content}
-              avatars={post.metadata.team?.map((member: any) => ({ src: member.avatar })) || []}
-              link={post.metadata.link || ""}
+              project={{
+                slug: post.slug,
+                title: post.metadata.title,
+                tagline: post.metadata.summary || "",
+                category: post.metadata.category || "Project",
+                problem: post.metadata.summary || "",
+                solution: "",
+                impact: "",
+                tech: post.metadata.tech || [],
+                images: post.metadata.images?.map((src: string) => ({ src, alt: post.metadata.title, width: 16, height: 9 })) || [],
+                metrics: post.metadata.metrics || [],
+              }}
             />
           </RevealFx>
         ))}

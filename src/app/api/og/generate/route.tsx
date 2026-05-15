@@ -65,8 +65,8 @@ export async function GET(request: Request) {
           <Image
             src={baseURL + person.avatar}
             alt={`${person.name} avatar`}
-            width={192}  // équivaut à 12rem (12 * 16)
-            height={192} // idem
+            width={192}  // equivalent to 12rem (12 * 16)
+            height={192} // same
             style={{
               objectFit: "cover",
               borderRadius: "100%",
