@@ -15,6 +15,7 @@ import { baseURL, about, person, work } from "@/resources";
 import { projects, type Project } from "@/data";
 import { Metadata } from "next";
 import { ProjectCard } from "@/components/ProjectCard";
+import { ProjectGallery } from "@/components/ProjectGallery";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -83,6 +84,13 @@ export default async function ProjectPage({
           {project.tagline}
         </Text>
       </Column>
+
+      {/* Gallery */}
+      {project.images && project.images.length > 0 && (
+        <Column maxWidth="m" fillWidth>
+          <ProjectGallery images={project.images} />
+        </Column>
+      )}
 
       {/* Main Content */}
       <Column maxWidth="m" fillWidth gap="xl">

@@ -33,6 +33,18 @@ export const projects: Project[] = [
         width: 16,
         height: 9,
       },
+      {
+        src: "/images/projects/allcontrol/allcontrol2.png",
+        alt: "AllControl Analytics",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/allcontrol/allcontrol3.png",
+        alt: "AllControl Management",
+        width: 16,
+        height: 9,
+      },
     ],
     metrics: [
       { label: "Manual workload reduction", value: "50%" },
@@ -53,7 +65,26 @@ export const projects: Project[] = [
     impact:
       "50% reduction in manual processing work, increased tax data reliability, and significant improvement in processing times.",
     tech: ["Next.js", "TypeScript", "Python", "PostgreSQL", "Machine Learning"],
-    images: [],
+    images: [
+      {
+        src: "/images/projects/taxapp/taxapp.png",
+        alt: "TaxApp Dashboard",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/taxapp/taxapp2.png",
+        alt: "TaxApp Data Processing",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/taxapp/taxapp3.png",
+        alt: "TaxApp Reports",
+        width: 16,
+        height: 9,
+      },
+    ],
     metrics: [
       { label: "Manual work reduction", value: "50%" },
       { label: "Data reliability", value: "98%" },
@@ -72,9 +103,71 @@ export const projects: Project[] = [
     impact:
       "Content strategy optimization, increased user engagement, and editorial decisions based on concrete data.",
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Python", "Analytics"],
-    images: [],
+    images: [
+      {
+        src: "/images/projects/miabehub/miabehub.png",
+        alt: "MiabeHub Dashboard",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/miabehub/miabehub2.png",
+        alt: "MiabeHub Analytics",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/miabehub/miabehub3.png",
+        alt: "MiabeHub Content",
+        width: 16,
+        height: 9,
+      },
+    ],
     metrics: [
       { label: "User engagement", value: "+40%" },
+    ],
+    featured: true,
+  },
+  {
+    slug: "akonta",
+    title: "AKONTA",
+    tagline: "All-in-one business management solution for SMEs",
+    category: "Business application",
+    problem:
+      "Entrepreneurs waste enormous time with manual calculations, tax errors (VAT, BIC), poorly organized documents, approximate stock tracking, and unprofessional invoicing. This limits productivity, creates confusion, and prevents good decision-making.",
+    solution:
+      "All-in-one platform that automates the entire management process: automatic tax calculation (VAT, BIC), instant invoice and proforma generation, stock management (in/out, available levels, units), complete customer database, product and service management with purchase and sale prices, instant WhatsApp invoice sending upon sale validation, and a comprehensive statistics module that transforms sales data into clear charts.",
+    impact:
+      "100% automation of tax calculations, elimination of manual errors, professional instant invoicing, and complete business visibility through real-time statistics and charts.",
+    tech: ["Laravel", "MySQL", "PHP"],
+    images: [
+      {
+        src: "/images/projects/akonta/akonta.png",
+        alt: "AKONTA Dashboard",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/akonta/akonta2.png",
+        alt: "AKONTA Invoicing",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/akonta/akonta3.png",
+        alt: "AKONTA Stock Management",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/akonta/akonta4.png",
+        alt: "AKONTA Statistics",
+        width: 16,
+        height: 9,
+      },
+    ],
+    metrics: [
+      { label: "Tax calculation automation", value: "100%" },
     ],
     featured: true,
   },
@@ -97,6 +190,18 @@ export const projects: Project[] = [
         width: 16,
         height: 9,
       },
+      {
+        src: "/images/projects/lamaindedieu/2.png",
+        alt: "SCOOPS Products",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/lamaindedieu/3.png",
+        alt: "SCOOPS Dashboard",
+        width: 16,
+        height: 9,
+      },
     ],
   },
   {
@@ -114,7 +219,19 @@ export const projects: Project[] = [
     images: [
       {
         src: "/images/projects/andregroup/1.png",
-        alt: "ANDRE GROUP",
+        alt: "ANDRE GROUP Home",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/andregroup/2.png",
+        alt: "ANDRE GROUP Services",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/andregroup/3.png",
+        alt: "ANDRE GROUP Contact",
         width: 16,
         height: 9,
       },
@@ -132,7 +249,26 @@ export const projects: Project[] = [
     impact:
       "Better inventory visibility, reduced losses, and optimized replenishment.",
     tech: ["Next.js", "TypeScript", "PostgreSQL"],
-    images: [],
+    images: [
+      {
+        src: "/images/projects/skm/skm.png",
+        alt: "SKM Dashboard",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/skm/skm2.png",
+        alt: "SKM Stock Management",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/skm/skm3.png",
+        alt: "SKM Analytics",
+        width: 16,
+        height: 9,
+      },
+    ],
   },
   {
     slug: "denonce",
@@ -146,7 +282,32 @@ export const projects: Project[] = [
     impact:
       "Facilitated citizen reporting, structured incident processing, and improved responsiveness.",
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Auth"],
-    images: [],
+    images: [
+      {
+        src: "/images/projects/denonce/denonce.png",
+        alt: "Dénoncé Home",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/denonce/denonce2.png",
+        alt: "Dénoncé Reporting",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/denonce/denonce3.png",
+        alt: "Dénoncé Dashboard",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/denonce/denonce4.png",
+        alt: "Dénoncé Admin",
+        width: 16,
+        height: 9,
+      },
+    ],
   },
   {
     slug: "think",
@@ -160,6 +321,43 @@ export const projects: Project[] = [
     impact:
       "Productive tool for capturing and organizing ideas, adopted by a growing community of users.",
     tech: ["Next.js", "TypeScript", "MongoDB"],
-    images: [],
+    images: [
+      {
+        src: "/images/projects/think/think.png",
+        alt: "Think App",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/think/think2.png",
+        alt: "Think Notes",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/think/think3.png",
+        alt: "Think Organization",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/think/think4.png",
+        alt: "Think Ideas",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/think/think5.png",
+        alt: "Think Workspace",
+        width: 16,
+        height: 9,
+      },
+      {
+        src: "/images/projects/think/think6.png",
+        alt: "Think Settings",
+        width: 16,
+        height: 9,
+      },
+    ],
   },
 ];

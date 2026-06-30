@@ -130,7 +130,7 @@ export const whyMe = {
 
 export const heroStats = [
   { value: "10+", label: "Projects delivered" },
-  { value: "4+", label: "Years of experience" },
+  { value: "5+", label: "Years of experience" },
   { value: "100%", label: "Client satisfaction" },
 ];
 

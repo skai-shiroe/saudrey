@@ -1,11 +1,13 @@
 "use client";
 
-import { Button, Column, Grid, Heading, Line, RevealFx, Row, Text } from "@once-ui-system/core";
+import { Button, Column, Grid, Heading, RevealFx, Row, Text } from "@once-ui-system/core";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { TechStack } from "@/components/ui/TechBadge";
+import { ProjectGallery } from "@/components/ProjectGallery";
 import { projects } from "@/data";
+import type { Project } from "@/data/projects";
 
 export const FeaturedProjects = () => {
   const featured = projects.filter((p) => p.featured);
@@ -73,16 +75,23 @@ export const FeaturedProjects = () => {
   );
 };
 
-const FeaturedHero = ({ project }: { project: any }) => {
+const FeaturedHero = ({ project }: { project: Project }) => {
   const router = useRouter();
 
   return (
     <motion.div
+      role="button"
+      tabIndex={0}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
       className="card-premium glow-indigo"
       style={{ padding: "48px", cursor: "pointer" }}
       onClick={() => router.push(`/work/${project.slug}`)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          router.push(`/work/${project.slug}`);
+        }
+      }}
     >
       <Row fillWidth gap="xl" s={{ direction: "column" }} vertical="center">
         <Column flex={1} gap="20">
@@ -101,7 +110,7 @@ const FeaturedHero = ({ project }: { project: any }) => {
           <TechStack items={project.tech} />
           {project.metrics && (
             <Row gap="32" paddingTop="8">
-              {project.metrics.map((metric: any) => (
+              {project.metrics.map((metric) => (
                 <Column key={metric.label} gap="4">
                   <Text variant="heading-strong-xl" className="gradient-text-subtle">
                     {metric.value}
@@ -126,20 +135,11 @@ const FeaturedHero = ({ project }: { project: any }) => {
             </Button>
           </Row>
         </Column>
-        {project.images[0] && (
+        {project.images && project.images.length > 0 && (
           <Column flex={1} fillWidth>
-            <Image
-              src={project.images[0].src}
-              alt={project.images[0].alt}
-              width={800}
-              height={450}
-              style={{
-                width: "100%",
-                height: "auto",
-                borderRadius: "12px",
-                border: "1px solid rgba(99, 102, 241, 0.1)",
-              }}
-            />
+            <div role="none" onClick={(e) => e.stopPropagation()}>
+              <ProjectGallery images={project.images} />
+            </div>
           </Column>
         )}
       </Row>
@@ -147,18 +147,55 @@ const FeaturedHero = ({ project }: { project: any }) => {
   );
 };
 
-const FeaturedCard = ({ project }: { project: any }) => {
+const FeaturedCard = ({ project }: { project: Project }) => {
   const router = useRouter();
+  const coverImage = project.images[0];
 
   return (
     <motion.div
+      role="button"
+      tabIndex={0}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
       className="card-premium glow-hover"
-      style={{ padding: "36px", cursor: "pointer" }}
+      style={{ cursor: "pointer", overflow: "hidden" }}
       onClick={() => router.push(`/work/${project.slug}`)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          router.push(`/work/${project.slug}`);
+        }
+      }}
     >
-      <Column gap="16" style={{ height: "100%" }}>
+      {/* Cover Image */}
+      {coverImage && (
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "180px",
+            overflow: "hidden",
+          }}
+        >
+          <Image
+            src={coverImage.src}
+            alt={coverImage.alt}
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "top",
+            }}
+            sizes="(max-width: 768px) 100vw, 400px"
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to top, var(--surface-card) 0%, transparent 60%)",
+            }}
+          />
+        </div>
+      )}
+      <Column gap="16" style={{ padding: coverImage ? "20px 24px 24px" : "36px" }}>
         <span className="badge-premium" style={{ width: "fit-content" }}>
           {project.category}
         </span>
