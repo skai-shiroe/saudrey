@@ -2,17 +2,13 @@
 
 import { Column, Row, Heading, Text, Button, RevealFx, Avatar } from "@once-ui-system/core";
 import { site } from "@/data";
-import { motion } from "framer-motion";
-
 export const PhilosophyPreview = () => {
   return (
     <Column fillWidth horizontal="center" paddingY="80">
       <Column maxWidth="l" fillWidth gap="xl">
         <RevealFx translateY="20" delay={0.3}>
-          <motion.div
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.2 }}
-            className="card-premium glow-hover"
+          <div
+            className="card-premium glow-hover card-hover-lift-sm"
             style={{ padding: "48px" }}
           >
             <Row gap="xl" s={{ direction: "column" }} vertical="center">
@@ -58,7 +54,7 @@ export const PhilosophyPreview = () => {
                 </Row>
               </Column>
             </Row>
-          </motion.div>
+          </div>
         </RevealFx>
       </Column>
     </Column>

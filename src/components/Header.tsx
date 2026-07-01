@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery, truths } from "@/resources";
+import { routes, display, about, blog, work, gallery, truths } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 import { motion } from "framer-motion";
@@ -90,7 +90,7 @@ export const Header = () => {
         >
           <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
             {routes["/"] && (
-              <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+              <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} aria-label="Home" />
             )}
             {routes["/about"] && (
               <>
@@ -101,6 +101,7 @@ export const Header = () => {
                     href="/about"
                     label={about.label}
                     selected={pathname === "/about"}
+                    aria-label="About"
                   />
                 </Row>
                 <Row hide s={{ hide: false }}>
@@ -108,6 +109,7 @@ export const Header = () => {
                     prefixIcon="person"
                     href="/about"
                     selected={pathname === "/about"}
+                    aria-label="About"
                   />
                 </Row>
               </>
@@ -120,6 +122,7 @@ export const Header = () => {
                     href="/work"
                     label={work.label}
                     selected={pathname.startsWith("/work")}
+                    aria-label="Projects"
                   />
                 </Row>
                 <Row hide s={{ hide: false }}>
@@ -127,6 +130,7 @@ export const Header = () => {
                     prefixIcon="grid"
                     href="/work"
                     selected={pathname.startsWith("/work")}
+                    aria-label="Projects"
                   />
                 </Row>
               </>
@@ -139,6 +143,7 @@ export const Header = () => {
                     href="/blog"
                     label={blog.label}
                     selected={pathname.startsWith("/blog")}
+                    aria-label="Blog"
                   />
                 </Row>
                 <Row hide s={{ hide: false }}>
@@ -146,6 +151,7 @@ export const Header = () => {
                     prefixIcon="book"
                     href="/blog"
                     selected={pathname.startsWith("/blog")}
+                    aria-label="Blog"
                   />
                 </Row>
               </>
@@ -158,6 +164,7 @@ export const Header = () => {
                     href="/truths"
                     label={truths.label}
                     selected={pathname.startsWith("/truths")}
+                    aria-label="Truths"
                   />
                 </Row>
                 <Row hide s={{ hide: false }}>
@@ -165,6 +172,7 @@ export const Header = () => {
                     prefixIcon="sparkles"
                     href="/truths"
                     selected={pathname.startsWith("/truths")}
+                    aria-label="Truths"
                   />
                 </Row>
               </>
@@ -177,6 +185,7 @@ export const Header = () => {
                     href="/gallery"
                     label={gallery.label}
                     selected={pathname.startsWith("/gallery")}
+                    aria-label="Gallery"
                   />
                 </Row>
                 <Row hide s={{ hide: false }}>
@@ -184,6 +193,7 @@ export const Header = () => {
                     prefixIcon="gallery"
                     href="/gallery"
                     selected={pathname.startsWith("/gallery")}
+                    aria-label="Gallery"
                   />
                 </Row>
               </>

@@ -86,13 +86,36 @@
   );
   border: 1px solid rgba(99, 102, 241, 0.08);
   border-radius: 16px;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
 }
 
 .card-premium:hover {
   border-color: rgba(99, 102, 241, 0.2);
   box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
   transform: translateY(-2px);
+}
+
+/* Card hover lift (used by framer-motion whileHover replacements) */
+.card-hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.card-hover-lift-sm:hover {
+  transform: translateY(-2px);
+}
+
+.card-hover-scale:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.card-hover-lift-strong:hover {
+  transform: translateY(-6px) scale(1.02);
 }
 
 /* --- Badge Styles --- */
@@ -417,7 +440,21 @@
   to { transform: rotate(360deg); }
 }
 
-/* --- Responsive adjustments --- */
+/* --- Content visibility (lazy render offscreen sections) --- */
+.section-premium,
+.section-premium-sm,
+.card-premium {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
+/* --- Touch target sizing (WCAG 2.2 compliance) --- */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .section-premium {
     padding: 60px 0;

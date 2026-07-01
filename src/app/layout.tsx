@@ -48,10 +48,7 @@ export default async function RootLayout({
               (function() {
                 try {
                   const root = document.documentElement;
-                  const defaultTheme = 'system';
-                  
-                  // Set defaults from config
-                  const config = ${JSON.stringify({
+                  var config = ${JSON.stringify({
                     brand: style.brand,
                     accent: style.accent,
                     neutral: style.neutral,
@@ -63,49 +60,24 @@ export default async function RootLayout({
                     scaling: style.scaling,
                     "viz-style": dataStyle.variant,
                   })};
-                  
-                  // Apply default values
-                  Object.entries(config).forEach(([key, value]) => {
-                    root.setAttribute('data-' + key, value);
-                  });
-                  
-                  // Resolve theme
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-                  
-                  // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute('data-theme', resolvedTheme);
-                  
-                  // Apply any saved style overrides
-                  const styleKeys = Object.keys(config);
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) {
-                      root.setAttribute('data-' + key, value);
-                    }
-                  });
-
-                  // Scroll Progress Logic
-                  window.addEventListener('scroll', () => {
-                    const scrollProgress = document.getElementById('scroll-progress');
-                    if (scrollProgress) {
-                      const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                      const scrollCurrent = window.scrollY;
-                      const scrollPercent = (scrollCurrent / scrollTotal) * 100;
-                      scrollProgress.style.width = scrollPercent + '%';
-                    }
-                  });
-                } catch (e) {
-                  console.error('Failed to initialize theme or scroll progress:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
+                  Object.entries(config).forEach(function(e){root.setAttribute('data-'+e[0],e[1])});
+                  var t=localStorage.getItem('data-theme');
+                  var r=t&&t!=='system'?t:(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+                  root.setAttribute('data-theme',r);
+                  Object.keys(config).forEach(function(k){var v=localStorage.getItem('data-'+k);if(v)root.setAttribute('data-'+k,v)});
+                } catch(e) {
+                  document.documentElement.setAttribute('data-theme','dark');
                 }
               })();
+            `,
+          }}
+        />
+        {/* Load scroll progress as a non-blocking defer script */}
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Minimal scroll progress init
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('scroll',function(){var e=document.getElementById('scroll-progress');if(e){var t=document.documentElement.scrollHeight-document.documentElement.clientHeight;var n=window.scrollY;e.style.width=(n/t)*100+'%'}},{passive:true});
             `,
           }}
         />

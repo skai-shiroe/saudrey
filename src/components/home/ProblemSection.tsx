@@ -2,13 +2,7 @@
 
 import { Column, Row, Heading, Text, RevealFx, Grid } from "@once-ui-system/core";
 import { problems } from "@/data";
-import * as LucideIcons from "lucide-react";
-import { motion } from "framer-motion";
-
-const IconComponent = ({ name }: { name: string }) => {
-  const Icon = (LucideIcons as any)[name];
-  return Icon ? <Icon size={24} className="lucide-icon" /> : null;
-};
+import { Icon } from "@/components/ui/Icon";
 
 export const ProblemSection = () => {
   return (
@@ -35,10 +29,8 @@ export const ProblemSection = () => {
         <Grid columns="3" s={{ columns: 1 }} gap="l">
           {problems.items.map((item, index) => (
             <RevealFx key={item.title} translateY="20" delay={0.3 + index * 0.15}>
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-                className="card-premium"
+              <div
+                className="card-premium card-hover-lift"
                 style={{ padding: "32px", height: "100%" }}
               >
                 <Column gap="16" style={{ height: "100%" }}>
@@ -51,7 +43,7 @@ export const ProblemSection = () => {
                     vertical="center"
                   >
                     <div style={{ color: "var(--brand-on-background-strong)" }}>
-                      <IconComponent name={item.icon} />
+                      <Icon name={item.icon} size={24} />
                     </div>
                   </Row>
                   <Heading as="h3" variant="heading-strong-m">
@@ -61,7 +53,7 @@ export const ProblemSection = () => {
                     {item.description}
                   </Text>
                 </Column>
-              </motion.div>
+              </div>
             </RevealFx>
           ))}
         </Grid>

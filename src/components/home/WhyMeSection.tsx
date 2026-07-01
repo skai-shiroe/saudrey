@@ -2,13 +2,7 @@
 
 import { Column, Row, Heading, Text, RevealFx, Grid } from "@once-ui-system/core";
 import { whyMe } from "@/data";
-import * as LucideIcons from "lucide-react";
-import { motion } from "framer-motion";
-
-const IconComponent = ({ name }: { name: string }) => {
-  const Icon = (LucideIcons as any)[name];
-  return Icon ? <Icon size={24} /> : null;
-};
+import { Icon } from "@/components/ui/Icon";
 
 export const WhyMeSection = () => {
   return (
@@ -35,10 +29,8 @@ export const WhyMeSection = () => {
         <Grid columns="2" s={{ columns: 1 }} gap="l">
           {whyMe.items.map((item, index) => (
             <RevealFx key={item.title} translateY="20" delay={0.3 + index * 0.15}>
-              <motion.div
-                whileHover={{ y: -4, scale: 1.01 }}
-                transition={{ duration: 0.2 }}
-                className="card-premium glow-hover"
+              <div
+                className="card-premium glow-hover card-hover-scale"
                 style={{ padding: "36px", height: "100%" }}
               >
                 <Row gap="20" vertical="center" s={{ direction: "column", align: "start" }}>
@@ -54,7 +46,7 @@ export const WhyMeSection = () => {
                       minWidth: "48px",
                     }}
                   >
-                    <IconComponent name={item.icon} />
+                    <Icon name={item.icon} size={24} />
                   </Row>
                   <Column gap="12">
                     <Heading as="h3" variant="heading-strong-l">
@@ -65,7 +57,7 @@ export const WhyMeSection = () => {
                     </Text>
                   </Column>
                 </Row>
-              </motion.div>
+              </div>
             </RevealFx>
           ))}
         </Grid>

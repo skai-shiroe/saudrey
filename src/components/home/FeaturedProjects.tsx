@@ -1,7 +1,6 @@
 "use client";
 
 import { Button, Column, Grid, Heading, RevealFx, Row, Text } from "@once-ui-system/core";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { TechStack } from "@/components/ui/TechBadge";
@@ -79,12 +78,10 @@ const FeaturedHero = ({ project }: { project: Project }) => {
   const router = useRouter();
 
   return (
-    <motion.div
+    <div
       role="button"
       tabIndex={0}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2 }}
-      className="card-premium glow-indigo"
+      className="card-premium glow-indigo card-hover-lift"
       style={{ padding: "48px", cursor: "pointer" }}
       onClick={() => router.push(`/work/${project.slug}`)}
       onKeyDown={(e) => {
@@ -143,7 +140,7 @@ const FeaturedHero = ({ project }: { project: Project }) => {
           </Column>
         )}
       </Row>
-    </motion.div>
+    </div>
   );
 };
 
@@ -152,12 +149,10 @@ const FeaturedCard = ({ project }: { project: Project }) => {
   const coverImage = project.images[0];
 
   return (
-    <motion.div
+    <div
       role="button"
       tabIndex={0}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2 }}
-      className="card-premium glow-hover"
+      className="card-premium glow-hover card-hover-lift"
       style={{ cursor: "pointer", overflow: "hidden" }}
       onClick={() => router.push(`/work/${project.slug}`)}
       onKeyDown={(e) => {
@@ -219,6 +214,6 @@ const FeaturedCard = ({ project }: { project: Project }) => {
           </Button>
         </Row>
       </Column>
-    </motion.div>
+    </div>
   );
 };

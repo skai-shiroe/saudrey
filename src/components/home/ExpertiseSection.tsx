@@ -9,13 +9,8 @@ import {
   Grid,
 } from "@once-ui-system/core";
 import { expertise } from "@/data";
-import * as LucideIcons from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import { motion } from "framer-motion";
-
-const IconComponent = ({ name }: { name: string }) => {
-  const Icon = (LucideIcons as any)[name];
-  return Icon ? <Icon size={24} /> : null;
-};
 
 const levelBarConfig = (level: string) => {
   switch (level) {
@@ -103,16 +98,8 @@ export const ExpertiseSection = () => {
               translateY="20"
               delay={0.3 + index * 0.1}
             >
-              <motion.div
-                whileHover={{
-                  y: -6,
-                  scale: 1.02,
-                }}
-                transition={{
-                  duration: 0.25,
-                  ease: "easeOut",
-                }}
-                className="card-premium"
+              <div
+                className="card-premium card-hover-lift-strong"
                 style={{
                   padding: "28px",
                   width: "100%",
@@ -144,7 +131,7 @@ export const ExpertiseSection = () => {
                         color: "var(--brand-on-background-strong)",
                       }}
                     >
-                      <IconComponent name={category.icon} />
+                      <Icon name={category.icon} size={24} />
                     </Row>
 
                     <Heading as="h3" variant="heading-strong-m">
@@ -213,7 +200,7 @@ export const ExpertiseSection = () => {
                     })}
                   </Column>
                 </Column>
-              </motion.div>
+              </div>
             </RevealFx>
           ))}
         </Grid>

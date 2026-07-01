@@ -1,7 +1,6 @@
 "use client";
 
 import { Button, Column, Heading, RevealFx, Row, Text } from "@once-ui-system/core";
-import { motion } from "framer-motion";
 import { TechStack } from "@/components/ui/TechBadge";
 import { projects } from "@/data";
 
@@ -38,10 +37,8 @@ export const CaseStudyHighlight = () => {
         </Column>
 
         <RevealFx translateY="20" delay={0.3}>
-          <motion.div
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.2 }}
-            className="card-premium glow-indigo"
+          <div
+            className="card-premium glow-indigo card-hover-lift-sm"
             style={{ padding: "48px" }}
           >
             <Row fillWidth gap="xl" s={{ direction: "column" }} vertical="center">
@@ -140,7 +137,7 @@ export const CaseStudyHighlight = () => {
                 </Row>
               </Column>
             </Row>
-          </motion.div>
+          </div>
         </RevealFx>
       </Column>
     </Column>

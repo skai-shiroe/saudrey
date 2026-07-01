@@ -2,13 +2,7 @@
 
 import { Column, Row, Heading, Text, RevealFx, Grid } from "@once-ui-system/core";
 import { services } from "@/data";
-import * as LucideIcons from "lucide-react";
-import { motion } from "framer-motion";
-
-const IconComponent = ({ name }: { name: string }) => {
-  const Icon = (LucideIcons as any)[name];
-  return Icon ? <Icon size={28} /> : null;
-};
+import { Icon } from "@/components/ui/Icon";
 
 export const ServicesSection = () => {
   return (
@@ -35,10 +29,8 @@ export const ServicesSection = () => {
         <Grid columns="2" s={{ columns: 1 }} gap="l">
           {services.items.map((service, index) => (
             <RevealFx key={service.title} translateY="20" delay={0.3 + index * 0.15}>
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-                className="card-premium glow-hover"
+              <div
+                className="card-premium glow-hover card-hover-lift"
                 style={{ padding: "40px", height: "100%" }}
               >
                 <Column gap="20" style={{ height: "100%" }}>
@@ -51,7 +43,7 @@ export const ServicesSection = () => {
                     vertical="center"
                     style={{ color: "var(--brand-on-background-strong)" }}
                   >
-                    <IconComponent name={service.icon} />
+                    <Icon name={service.icon} size={28} />
                   </Row>
                   <Heading as="h3" variant="heading-strong-l">
                     {service.title}
@@ -67,7 +59,7 @@ export const ServicesSection = () => {
                     ))}
                   </Row>
                 </Column>
-              </motion.div>
+              </div>
             </RevealFx>
           ))}
         </Grid>
