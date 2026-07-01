@@ -141,9 +141,9 @@ const about: About = {
   avatar: {
     display: true,
   },
-  calendar: {
+  calendar: { 
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.eu/k.-audrey-senou-i8oc88",
   },
   intro: {
     display: true,

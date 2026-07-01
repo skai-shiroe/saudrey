@@ -24,10 +24,9 @@ export function PostList({
   const filters = ["All", "AI", "Data", "Development", "Automation", "Strategy", "Story", "Career"];
 
   const filteredPosts = allPosts.filter((post: any) => {
-    // Only show posts that have a category from our filter list
     const category = (post.metadata as any).category;
     if (activeFilter === "All") {
-        return filters.includes(category);
+        return true;
     }
     return category === activeFilter;
   });

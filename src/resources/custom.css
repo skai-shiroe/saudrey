@@ -403,6 +403,20 @@
   background-clip: text;
 }
 
+/* --- Loading Spinner --- */
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(99, 102, 241, 0.15);
+  border-top-color: #6366F1;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* --- Responsive adjustments --- */
 @media (max-width: 768px) {
   .section-premium {
